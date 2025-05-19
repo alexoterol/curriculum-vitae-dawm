@@ -16,6 +16,10 @@
         </figure>
         <h1>Alex Otero</h1>
         <p>Aspiring Software Engineer passionate about data analysis, visualization, and AI. Experienced in SQL, Python, and Power BI—turning complex data into clear, actionable insights.</p>
+        <!-- Video de YouTube -->
+        <div>
+            <iframe width="400" height="225" src="https://www.youtube.com/embed/lVMIAMqULh4" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+        </div>
     </header>
 
     <nav>
@@ -36,6 +40,10 @@
             <p><span>Email: </span></p>
             <p><span>Phone Number: </span></p>
             <p><span>LinkedIn: </span><a href="">Profile</a></p>
+            <!-- Imagen placeholder -->
+            <img src="https://placehold.co/200x200" alt="Placeholder image" />
+            <!-- Párrafo con enlace a un sitio web -->
+            <p>Visita mi sitio web personal en <a href="https://alexotero.dev" target="_blank">alexotero.dev</a> para más información.</p>
         </section>
 
         <section id="experience">
@@ -51,23 +59,135 @@
         <section id="skills">
             <h2>Skills</h2>
             <p>Details about your skills go here.</p>
+            <!-- Lista ordenada de elementos -->
+            <ol>
+                <li>Python</li>
+                <li>SQL</li>
+                <li>Power BI</li>
+            </ol>
+            <!-- Lista no ordenada de elementos -->
+            <ul>
+                <li>Trabajo en equipo</li>
+                <li>Comunicación</li>
+                <li>Resolución de problemas</li>
+            </ul>
         </section>
 
         <section id="education">
             <h2>Education</h2>
             <p>Details about your education go here.</p>
+            <!-- Mapa de Google Maps -->
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.019061593234!2d-79.96587713387225!3d-2.1463867929348295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d7303bb0133cd%3A0x66c18bd9810f31cb!2sFacultad%20de%20Ingenier%C3%ADa%20en%20Electricidad%20y%20Computaci%C3%B3n%20FIEC%20-%20ESPOL!5e0!3m2!1ses-419!2sec!4v1747666174577!5m2!1ses-419!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </section>
 
         <section id="awards">
             <h2>Awards and Honors</h2>
             <p>Details about your awards and honors go here.</p>
+            <!-- Tabla sin bordes -->
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Año</th>
+                    <th>Reconocimiento</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td>2023</td>
+                    <td>Mejor Proyecto de Datos</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>2024</td>
+                    <td>Reconocimiento Académico</td>
+                </tr>
+            </table>
         </section>
 
         <section id="references">
             <h2>References</h2>
-            <p>Details about your references go here.</p>
+            <article class="reference">
+                <blockquote>
+                    “Alex siempre mostró un alto nivel de compromiso y responsabilidad en cada proyecto que lideró.”
+                </blockquote>
+                <p><span>Carlos Mera</span>
+                <span>Gerente de Proyectos en TechSolutions</span>
+                <span>Trabajó con Alex en el desarrollo de sistemas empresariales, destacando su liderazgo y capacidad de trabajo en equipo.</span></p>
+            </article>
+            <article class="reference">
+                <blockquote>
+                    “Su creatividad y habilidades técnicas fueron fundamentales para el éxito de nuestras implementaciones.”
+                </blockquote>
+                <p><span>Bruno Romero</span>
+                <span>Jefe de Innovación en DataCorp</span>
+                <span>Colaboró con Alex en proyectos de análisis de datos, resaltando su pensamiento innovador y dedicación.</span></p>
+            </article>
+            <article class="reference">
+                <blockquote>
+                    “Alex demostró una rápida adaptación a nuevos retos y una excelente comunicación con el equipo.”
+                </blockquote>
+                <p><span>Carmen Vaca</span>
+                <span>Líder de Equipo en BI Solutions</span>
+                <span>Supervisó a Alex durante su pasantía, valorando su proactividad y aprendizaje constante.</span></p>
+            </article>
         </section>
     </main>
+
+    <section id="contact-form">
+        <h2>Contact Form</h2>
+        <form action="#" method="post">
+            <!-- Campo de texto en una línea -->
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <!-- Lista desplegable -->
+            <label for="reason">Reason for Contact:</label>
+            <select id="reason" name="reason" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="job">Job Opportunity</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Conjunto de opciones relacionadas (radio) -->
+            <fieldset>
+                <legend>Preferred Contact Method:</legend>
+                <label>
+                    <input type="radio" name="contact_method" value="email" required>
+                    Email
+                </label>
+                <label>
+                    <input type="radio" name="contact_method" value="phone" required>
+                    Phone
+                </label>
+            </fieldset>
+
+            <!-- Vector de valores (checkbox) -->
+            <fieldset>
+                <legend>Topics of Interest:</legend>
+                <label>
+                    <input type="checkbox" name="topics" value="data" required>
+                    Data Analysis
+                </label>
+                <label>
+                    <input type="checkbox" name="topics" value="ai" required>
+                    Artificial Intelligence
+                </label>
+                <label>
+                    <input type="checkbox" name="topics" value="visualization" required>
+                    Data Visualization
+                </label>
+            </fieldset>
+
+            <!-- Área de texto -->
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <!-- Botón de envío -->
+            <button type="submit">Send</button>
+        </form>
+    </section>
 
     <footer>
         <p>&copy; 2025 Alex Otero. All rights reserved.</p>
