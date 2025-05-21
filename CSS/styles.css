@@ -1,0 +1,100 @@
+/* Variables globales */
+:root {
+  --link-color: #eebbc3;
+  --headline-color: #fffffe;
+  --background-color: #232946;
+  --pharagraph-color: #b8c1ec;
+  --font-title: "Playfair Display", serif;
+  --font-subtitle: "Chivo", sans-serif;
+  --font-pharagraph: "Chivo", sans-serif;
+  --espaciado-base: 16px;
+}
+
+/* Aplica la familia de fuentes a todos los elementos */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--pharagraph-color);
+  font-family: var(--font-pharagraph);
+  margin: var(--espaciado-base);
+}
+
+h1 {
+  font-family: var(--font-title);
+  text-align: center;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: var(--font-subtitle);
+  text-align: center;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: var(--font-subtitle);
+  text-align: center;
+  font-weight: bold;
+}
+
+p {
+  font-family: var(--font-pharagraph);
+
+  margin-bottom: var(--espaciado-base);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+#photo {
+  width: 8vw;
+  height: auto;
+}
+
+.subtitle {
+  color: rgb(151 156 165 / 0.89);
+  /* Cambiarle el color al subtite por la variable subtitle-color */
+  text-transform: uppercase;
+}
+
+footer p {
+  /* Alineación del texto a la derecha */
+  text-align: right;
+
+  /* Estilo de fuente itálica */
+  font-style: italic;
+}
+
+nav > ul {
+  /* Eliminar los estilos de lista predeterminados */
+  list-style: none;
+}
+
+  /* MODIFICAR COLORES*/
+section {
+  /* borde de grosor 0.2 en puntos, estilo sólido y color hexadecimal #cedddd  */
+  border: 0.2pt solid #cedddd;
+
+
+  /* margen (espacio externo) superior, derecho, abajo e izquierda */
+  margin: 4px 2px 8px 2px;
+
+  /* relleno (espacio interno) de
+  1.5% en la parte superior e inferior y
+  0.8% a los lados derecho e izquierdo. */
+  padding: 1.5% 0.8%;
+
+  /* Margen inferior ajustado */
+  margin-bottom: 1.2rem;
+
+  /* Bordes redondeados */
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+  /* Sombra */
+  box-shadow: -21px -20px 0px 0px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+}
