@@ -1,0 +1,10 @@
+:root {
+  --link-color: #eebbc3;
+  --headline-color: #fffffe;
+  --background-color: #232946;
+  --pharagraph-color: #b8c1ec;
+  --font-title: "Playfair Display", serif;
+  --font-subtitle: "Chivo", sans-serif;
+  --font-pharagraph: "Chivo", sans-serif;
+  --espaciado-base: 16px;
+}

@@ -1,0 +1,23 @@
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__text {
+  font-size: 0.9rem;
+  color: var(--pharagraph-color);
+}
+
+.footer__links {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer__link {
+  color: var(--link-color);
+  text-decoration: none;
+}

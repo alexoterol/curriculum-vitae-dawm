@@ -1,0 +1,30 @@
+.education {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.education__subtitle {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.education__card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 250px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.education__icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}

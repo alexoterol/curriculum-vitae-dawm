@@ -1,0 +1,49 @@
+.awards {
+  padding: 2rem;
+}
+
+.awards__subtitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo 1: Lista de premios */
+.awards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.awards__item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.awards__item-icon {
+  font-size: 1.5rem;
+}
+
+.awards__item-description {
+  flex: 1;
+}
+
+/* Estilo 2: Collage */
+.awards__collage {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.awards__collage-item {
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

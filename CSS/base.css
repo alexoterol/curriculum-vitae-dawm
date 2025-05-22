@@ -1,0 +1,25 @@
+body {
+  background-color: var(--background-color);
+  color: var(--pharagraph-color);
+  font-family: var(--font-pharagraph);
+  margin: var(--espaciado-base);
+}
+
+h1, h2, h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+h1 { font-family: var(--font-title); }
+h2, h3 { font-family: var(--font-subtitle); }
+
+p {
+  margin-bottom: var(--espaciado-base);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.subtitle {
+  color: rgb(151 156 165 / 0.89);
+  text-transform: uppercase;
+}

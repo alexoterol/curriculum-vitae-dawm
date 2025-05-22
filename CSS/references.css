@@ -1,0 +1,30 @@
+.references {
+  padding: 2rem;
+}
+
+.references__subtitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.references__item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.reference__quote {
+  font-style: italic;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.reference__info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
