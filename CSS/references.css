@@ -1,63 +1,72 @@
-.references {
-  max-width: 1100px;
+.references-table {
   margin: 3rem auto 2rem auto;
-  padding: 2rem 1rem;
+  max-width: 1100px;
+  padding: 1.5rem 1rem;
   background: linear-gradient(120deg, #232946 80%, #181c24 100%);
   border-radius: 18px;
   box-shadow: 0 4px 24px #23294633, 0 1.5px 8px #eebbc355;
 }
 
-.references__title {
+.references-table__title {
   text-align: center;
   color: var(--headline-color, #eebbc3);
   font-size: 2rem;
-  margin-bottom: 2.2rem;
+  margin-bottom: 1.5rem;
   letter-spacing: 1px;
   text-shadow: 0 1px 8px #23294644;
 }
 
-.references__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.reference {
-  background: linear-gradient(135deg, #232946 80%, #181c24 100%);
-  border-radius: 16px;
-  box-shadow: 0 2px 12px #23294622, 0 1.5px 8px #eebbc355;
-  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
-  min-width: 260px;
-  max-width: 340px;
-  flex: 1 1 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid var(--link-color, #eebbc3);
-  transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
-  position: relative;
+.references-table__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+  color: var(--pharagraph-color, #b8c1ec);
+  font-family: inherit;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 2px 12px #23294622;
 }
 
-.reference:hover {
-  box-shadow: 0 8px 32px #eebbc355;
-  border: 2px solid #eebbc3;
-  transform: translateY(-6px) scale(1.03);
+.references-table__table th,
+.references-table__table td {
+  padding: 1.1rem 1rem;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.reference__photo {
-  width: 72px;
-  height: 72px;
+.references-table__table th {
+  background: #232946;
+  color: var(--link-color, #eebbc3);
+  font-size: 1.08rem;
+  font-weight: 700;
+  border-bottom: 2.5px solid var(--link-color, #eebbc3);
+  letter-spacing: 0.5px;
+}
+
+.references-table__table tr {
+  transition: background 0.18s;
+}
+
+.references-table__table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.03);
+}
+
+.references-table__table tbody tr:hover {
+  background: #eebbc31a;
+}
+
+.references-table__photo {
+  width: 64px;
+  height: 64px;
   object-fit: cover;
   border-radius: 50%;
   border: 2.5px solid var(--link-color, #eebbc3);
   box-shadow: 0 2px 8px #23294633;
   background: #fff;
-  margin-bottom: 1rem;
 }
 
-.reference__quote {
+.references-table__quote {
   font-style: italic;
   color: var(--headline-color, #eebbc3);
   font-size: 1.08rem;
@@ -65,13 +74,12 @@
   border-left: 4px solid var(--link-color, #eebbc3);
   padding: 0.7rem 1rem;
   border-radius: 8px;
-  margin: 0 0 0.7rem 0;
+  margin: 0;
   text-align: left;
   box-shadow: 0 1px 4px #23294622;
-  width: 100%;
 }
 
-.reference__statement {
+.references-table__statement {
   display: block;
   font-size: 1rem;
   color: var(--pharagraph-color, #b8c1ec);
@@ -79,11 +87,11 @@
   border-radius: 8px;
   padding: 0.7rem 1rem;
   text-align: left;
-  margin: 0 0 0.7rem 0;
-  width: 100%;
+  margin: 0 auto;
+  max-width: 320px;
 }
 
-.reference__email {
+.references-table__email {
   color: var(--link-color, #eebbc3);
   background: #232946;
   padding: 0.4rem 0.8rem;
@@ -93,10 +101,9 @@
   transition: background 0.2s, color 0.2s;
   word-break: break-all;
   box-shadow: 0 1px 4px #23294622;
-  margin-top: 0.2rem;
 }
 
-.reference__email:hover {
+.references-table__email:hover {
   background: var(--link-color, #eebbc3);
   color: #232946;
 }
@@ -114,6 +121,15 @@
     width: 56px;
     height: 56px;
   }
+  .references-table__table th,
+  .references-table__table td {
+    padding: 0.7rem 0.4rem;
+    font-size: 0.97rem;
+  }
+  .references-table__photo {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -128,5 +144,34 @@
     min-width: 0;
     max-width: 100%;
     padding: 1rem 0.5rem 0.8rem 0.5rem;
+  }
+  .references-table {
+    padding: 1rem 0.2rem;
+  }
+  .references-table__table,
+  .references-table__table thead,
+  .references-table__table tbody,
+  .references-table__table tr {
+    display: block;
+    width: 100%;
+  }
+  .references-table__table th {
+    display: none;
+  }
+  .references-table__table td {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.7rem 0.5rem;
+    border-bottom: 1px solid #23294644;
+  }
+  .references-table__table tr {
+    margin-bottom: 1.2rem;
+    background: #23294622;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px #23294622;
+  }
+  .references-table__photo {
+    margin-right: 1rem;
   }
 }
