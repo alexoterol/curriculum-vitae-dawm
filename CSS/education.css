@@ -9,22 +9,112 @@
 .education__subtitle {
   text-align: center;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--headline-color);
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px #23294644;
+}
+
+.education__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .education__card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 1rem;
-  min-width: 250px;
-  max-width: 300px;
+  background: linear-gradient(135deg, #232946 80%, #181c24 100%);
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(30, 34, 48, 0.18), 0 1.5px 8px #eebbc355;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 270px;
+  max-width: 350px;
+  flex: 1 1 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  border: 2.5px solid var(--link-color);
+  transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
-.education__icon {
-  font-size: 2rem;
+.education__card:hover {
+  box-shadow: 0 12px 40px #eebbc3bb, 0 2px 12px #23294699;
+  border: 2.5px solid #eebbc3;
+  transform: translateY(-8px) scale(1.04);
+}
+
+.education__title {
+  font-size: 1.25rem;
+  color: var(--headline-color);
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px #181c24cc;
+}
+
+.education__institution {
+  color: var(--link-color);
+  font-size: 1.07rem;
+  margin-bottom: 0.1rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.education__years {
+  font-size: 0.97rem;
+  color: var(--subtitle-color);
   margin-bottom: 0.5rem;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.education__description {
+  color: var(--pharagraph-color);
+  font-size: 1.01rem;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 1px 4px #23294622;
+}
+
+.education__map,
+.education__course-link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-top: 0.2rem;
+}
+
+.education__iframe {
+  border-radius: 14px;
+  width: 100%;
+  min-height: 170px;
+  border: none;
+  box-shadow: 0 2px 12px #23294644;
+}
+
+.education__image {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 2px 12px #eebbc366;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid #eebbc3;
+}
+
+.education__course-link:hover .education__image {
+  transform: scale(1.10) rotate(-2deg);
+  box-shadow: 0 4px 24px #eebbc3cc;
 }

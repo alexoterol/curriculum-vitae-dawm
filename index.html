@@ -14,6 +14,23 @@
 
 </head>
 <body>
+    <nav class="nav nav--sticky">
+        <button class="nav__toggle" aria-label="Open navigation" aria-expanded="false">
+            <span class="nav__icon"></span>
+            <span class="nav__icon"></span>
+            <span class="nav__icon"></span>
+        </button>
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="#experience">Experience</a></li>
+            <li class="nav__item"><a class="nav__link" href="#projects">Projects</a></li>
+            <li class="nav__item"><a class="nav__link" href="#skills">Skills</a></li>
+            <li class="nav__item"><a class="nav__link" href="#contact">Contact Information</a></li>
+            <li class="nav__item"><a class="nav__link" href="#education">Education</a></li>
+            <li class="nav__item"><a class="nav__link" href="#awards">Awards and Honors</a></li>
+            <li class="nav__item"><a class="nav__link" href="#references">References</a></li>
+        </ul>
+    </nav>
+
     <header class="header">
         <div class="header__container">
             <div class="flip-box">
@@ -43,28 +60,179 @@
         </div>
     </header>
 
-
-
-    <nav class="nav">
-        <ul class="nav__list">
-            <li class="nav__item"><a class="nav__link" href="#contact">Contact Information</a></li>
-            <li class="nav__item"><a class="nav__link" href="#experience">Experience</a></li>
-            <li class="nav__item"><a class="nav__link" href="#projects">Projects</a></li>
-            <li class="nav__item"><a class="nav__link" href="#skills">Skills</a></li>
-            <li class="nav__item"><a class="nav__link" href="#education">Education</a></li>
-            <li class="nav__item"><a class="nav__link" href="#awards">Awards and Honors</a></li>
-            <li class="nav__item"><a class="nav__link" href="#references">References</a></li>
-        </ul>
-    </nav>
-
     <main class="main">
+        <section class="experience" id="experience">
+            <h2 class="experience__subtitle subtitle">Experience</h2>
+            <div class="experience__grid">
+                <article class="experience__card">
+                <img src="https://i.pinimg.com/736x/f2/a0/e2/f2a0e2abaa5b3853f9cdfec4ec07cb8b.jpg" alt="Project image" class="experience__image" />
+                <h3 class="experience__title">Software Intern</h3>
+                <p class="experience__description">Contributed to backend systems using Python and SQL for reporting automation.</p>
+                <button class="experience__button">...</button>
+                </article>
+
+                <article class="experience__card">
+                <img src="https://i.pinimg.com/736x/f2/a0/e2/f2a0e2abaa5b3853f9cdfec4ec07cb8b.jpg" alt="Project image" class="experience__image" />
+                <h3 class="experience__title">Data Analyst</h3>
+                <p class="experience__description">Built dashboards with Power BI and improved KPIs visibility for the finance team.</p>
+                <button class="experience__button">...</button>
+                </article>
+
+                <article class="experience__card">
+                <img src="https://i.pinimg.com/736x/f2/a0/e2/f2a0e2abaa5b3853f9cdfec4ec07cb8b.jpg" alt="Project image" class="experience__image" />
+                <h3 class="experience__title">AI Assistant</h3>
+                <p class="experience__description">Supported ML model validation for academic research on ADHD diagnosis.</p>
+                <button class="experience__button">...</button>
+                </article>
+            </div>
+        </section>
+
+
+        <section class="projects" id="projects">
+            <h2 class="projects__subtitle subtitle">Projects</h2>
+            <div class="projects__carousel">
+                <article class="projects__item">
+                    <img src="https://i.pinimg.com/736x/f2/a0/e2/f2a0e2abaa5b3853f9cdfec4ec07cb8b.jpg" alt="Data Dashboard" class="projects__image" />
+                    <div class="projects__info">
+                        <h3 class="projects__title">Data Dashboard</h3>
+                        <ul class="projects__tech">
+                            <li>Power BI</li>
+                            <li>SQL</li>
+                            <li>Python</li>
+                        </ul>
+                        <p class="projects__description">
+                            Interactive dashboard for business KPIs, enabling real-time data-driven decisions. Includes advanced filtering, export options, and user-friendly visuals.
+                        </p>
+                        <span class="projects__date">2024</span>
+                    </div>
+                    <a class="projects__arrow" href="https://github.com/alexotero/data-dashboard" target="_blank" aria-label="View project">&#8594;</a>
+                </article>
+                <article class="projects__item">
+                    <img src="https://i.pinimg.com/736x/f2/a0/e2/f2a0e2abaa5b3853f9cdfec4ec07cb8b.jpg" alt="AI Chatbot" class="projects__image" />
+                    <div class="projects__info">
+                        <h3 class="projects__title">AI Chatbot</h3>
+                        <ul class="projects__tech">
+                            <li>Python</li>
+                            <li>TensorFlow</li>
+                            <li>Flask</li>
+                        </ul>
+                        <p class="projects__description">
+                            Conversational AI assistant for customer support, trained on real queries.
+                        </p>
+                        <span class="projects__date">2023</span>
+                    </div>
+                    <a class="projects__arrow" href="https://github.com/alexotero/ai-chatbot" target="_blank" aria-label="View project">&#8594;</a>
+                </article>
+                <article class="projects__item">
+                    <img src="https://i.pinimg.com/736x/f2/a0/e2/f2a0e2abaa5b3853f9cdfec4ec07cb8b.jpg" alt="Portfolio Website" class="projects__image" />
+                    <div class="projects__info">
+                        <h3 class="projects__title">Portfolio Website</h3>
+                        <ul class="projects__tech">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <p class="projects__description">
+                            Personal website to showcase projects, skills, and contact information.
+                        </p>
+                        <span class="projects__date">2023</span>
+                    </div>
+                    <a class="projects__arrow" href="https://alexotero.dev" target="_blank" aria-label="View project">&#8594;</a>
+                </article>
+                <article class="projects__item">
+                    <img src="https://i.pinimg.com/736x/f2/a0/e2/f2a0e2abaa5b3853f9cdfec4ec07cb8b.jpg" alt="SQL Data Cleaner" class="projects__image" />
+                    <div class="projects__info">
+                        <h3 class="projects__title">SQL Data Cleaner</h3>
+                        <ul class="projects__tech">
+                            <li>SQL</li>
+                            <li>Python</li>
+                        </ul>
+                        <p class="projects__description">
+                            Automated tool for cleaning and transforming raw datasets for analytics.
+                        </p>
+                        <span class="projects__date">2022</span>
+                    </div>
+                    <a class="projects__arrow" href="https://github.com/alexotero/sql-data-cleaner" target="_blank" aria-label="View project">&#8594;</a>
+                </article>
+                <article class="projects__item">
+                    <img src="https://i.pinimg.com/736x/f2/a0/e2/f2a0e2abaa5b3853f9cdfec4ec07cb8b.jpg" alt="Power BI Sales Insights" class="projects__image" />
+                    <div class="projects__info">
+                        <h3 class="projects__title">Power BI Sales Insights</h3>
+                        <ul class="projects__tech">
+                            <li>Power BI</li>
+                            <li>DAX</li>
+                        </ul>
+                        <p class="projects__description">
+                            Sales dashboard with advanced DAX calculations and interactive reports.
+                        </p>
+                        <span class="projects__date">2022</span>
+                    </div>
+                    <a class="projects__arrow" href="https://github.com/alexotero/powerbi-sales-insights" target="_blank" aria-label="View project">&#8594;</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="skills" id="skills">
+            <h2 class="skills__subtitle subtitle">Skills</h2>
+            <div class="skills__groups">
+
+                <!-- Programming -->
+                <div class="skills__group">
+                    <div class="skills__icons">
+                        <span class="skills__icon" title="Python">🐍</span>
+                        <span class="skills__icon" title="HTML">🌐</span>
+                        <span class="skills__icon" title="CSS">🎨</span>
+                        <span class="skills__icon" title="JavaScript">🟨</span>
+                        <span class="skills__icon" title="SQL">🗄️</span>
+                    </div>
+                    <div class="skills__group-name">Programming</div>
+                </div>
+
+                <!-- AI & Data Analysis -->
+                <div class="skills__group">
+                    <div class="skills__icons">
+                        <span class="skills__icon" title="Pandas">🐼</span>
+                        <span class="skills__icon" title="NumPy">🔢</span>
+                        <span class="skills__icon" title="Power BI">📊</span>
+                        <span class="skills__icon" title="TensorFlow">🧠</span>
+                        <span class="skills__icon" title="YOLOv">👁️</span>
+                    </div>
+                    <div class="skills__group-name">AI & Data Analysis</div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skills__group">
+                    <div class="skills__icons">
+                        <span class="skills__icon" title="Comunicación">💬</span>
+                        <span class="skills__icon" title="Liderazgo">🧑‍💼</span>
+                        <span class="skills__icon" title="Trabajo en equipo">🤝</span>
+                        <span class="skills__icon" title="Resolución de problemas">🧩</span>
+                        <span class="skills__icon" title="Creatividad">💡</span>
+                    </div>
+                    <div class="skills__group-name">Soft Skills</div>
+                </div>
+
+                <!-- Languages -->
+                <div class="skills__group">
+                    <div class="skills__icons">
+                        <span class="skills__icon" title="Inglés">🇬🇧</span>
+                        <span class="skills__icon" title="Francés">🇫🇷</span>
+                        <span class="skills__icon" title="Español">🇪🇸</span>
+                        <span class="skills__icon" title="Japonés">🇯🇵</span>
+                    </div>
+                    <div class="skills__group-name">Languages</div>
+                </div>
+
+            </div>
+        </section>
+
         <section class="contact" id="contact">
             <h2 class="contact__subtitle subtitle">Contact Information</h2>
             
             <div class="contact__grid">
                 <div class="contact__item">
                 <span class="contact__label">📧 Email:</span>
-                <a class="contact__link" href="mailto:alex@example.com">alex@example.com</a>
+                <a class="contact__link" href="mailto:adotero@espol.edu.ec">adotero@espol.edu.ec</a>
                 </div>
 
                 <div class="contact__item">
@@ -83,172 +251,205 @@
                 </p>
                 </div>
             </div>
-            </section>
-
-
-        <section class="experience" id="experience">
-            <h2 class="experience__subtitle subtitle">Experience</h2>
-            <div class="experience__grid">
-                <article class="experience__card">
-                <img src="img/exp1.jpg" alt="Project image" class="experience__image" />
-                <h3 class="experience__title">Software Intern</h3>
-                <p class="experience__description">Contributed to backend systems using Python and SQL for reporting automation.</p>
-                <button class="experience__button">...</button>
-                </article>
-
-                <article class="experience__card">
-                <img src="img/exp2.jpg" alt="Project image" class="experience__image" />
-                <h3 class="experience__title">Data Analyst</h3>
-                <p class="experience__description">Built dashboards with Power BI and improved KPIs visibility for the finance team.</p>
-                <button class="experience__button">...</button>
-                </article>
-
-                <article class="experience__card">
-                <img src="img/exp3.jpg" alt="Project image" class="experience__image" />
-                <h3 class="experience__title">AI Assistant</h3>
-                <p class="experience__description">Supported ML model validation for academic research on ADHD diagnosis.</p>
-                <button class="experience__button">...</button>
-                </article>
-            </div>
-        </section>
-
-
-        <section class="projects" id="projects">
-            <h2 class="projects__subtitle subtitle">Projects</h2>
-            <p class="projects__description">Details about your projects go here.</p>
-        </section>
-
-        <section class="skills" id="skills">
-            <h2 class="skills__subtitle subtitle">Skills</h2>
-            <p class="skills__description">Details about your skills go here.</p>
-            <ol class="skills__list skills__list--ordered">
-                <li class="skills__item">Python</li>
-                <li class="skills__item">SQL</li>
-                <li class="skills__item">Power BI</li>
-            </ol>
-            <ul class="skills__list skills__list--unordered">
-                <li class="skills__item">Trabajo en equipo</li>
-                <li class="skills__item">Comunicación</li>
-                <li class="skills__item">Resolución de problemas</li>
-            </ul>
         </section>
 
         <section class="education" id="education">
             <h2 class="education__subtitle subtitle">Education</h2>
-            <p class="education__description">Details about your education go here.</p>
-            <div class="education__map"></div>
-                <iframe class="education__iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.019061593234!2d-79.96587713387225!3d-2.1463867929348295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d7303bb0133cd%3A0x66c18bd9810f31cb!2sFacultad%20de%20Ingenier%C3%ADa%20en%20Electricidad%20y%20Computaci%C3%B3n%20FIEC%20-%20ESPOL!5e0!3m2!1ses-419!2sec!4v1747666174577!5m2!1ses-419!2ec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="education__cards">
+
+                <!-- Universidad: ESPOL -->
+                <div class="education__card">
+                    <h3 class="education__title">Computer Engineering</h3>
+                    <div class="education__map">
+                        <iframe class="education__iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.019061593234!2d-79.96587713387225!3d-2.1463867929348295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d7303bb0133cd%3A0x66c18bd9810f31cb!2sFacultad%20de%20Ingenier%C3%ADa%20en%20Electricidad%20y%20Computaci%C3%B3n%20FIEC%20-%20ESPOL!5e0!3m2!1ses-419!2sec!4v1747666174577!5m2!1ses-419!2ec"
+                            width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <p class="education__institution">ESPOL - Escuela Superior Politécnica del Litoral</p>
+                    <p class="education__years">2023 – 2027</p>
+                    <p class="education__description">
+                        Bachelor's degree focused on software engineering, data analysis, and artificial intelligence. 
+                        Developed strong foundations in programming, algorithms, and real-world problem solving.
+                    </p>
+                </div>
+
+                <!-- Curso online de ejemplo -->
+                <div class="education__card">
+                    <h3 class="education__title">Deep Learning Specialization</h3>
+                    <a href="https://www.coursera.org/specializations/deep-learning" target="_blank" class="education__course-link">
+                        <img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/apple-touch-icon-76x76.png" alt="Deep Learning Specialization" class="education__image" />
+                    </a>
+                    <p class="education__institution">Coursera (DeepLearning.AI)</p>
+                    <p class="education__years">2024</p>
+                    <p class="education__description">
+                        Comprehensive program covering neural networks, CNNs, sequence models, and practical AI applications.
+                    </p>
+                </div>
+
+                <!-- Otro curso online de ejemplo -->
+                <div class="education__card">
+                    <h3 class="education__title">Data Visualization with Power BI</h3>
+                    <a href="https://www.udemy.com/course/microsoft-power-bi-up-running/" target="_blank" class="education__course-link">
+                        <img src="https://www.udemy.com/staticx/udemy/images/v7/favicon-96x96.png" alt="Power BI Course" class="education__image" />
+                    </a>
+                    <p class="education__institution">Udemy</p>
+                    <p class="education__years">2023</p>
+                    <p class="education__description">
+                        Hands-on course on building interactive dashboards and advanced data visualizations using Power BI.
+                    </p>
+                </div>
+
             </div>
         </section>
 
-        <section class="awards" id="awards">
-            <h2 class="awards__subtitle subtitle">Awards and Honors</h2>
-            <p class="awards__description">Details about your awards and honors go here.</p>
-            <table class="awards__table">
-                <tr class="awards__row">
-                    <th class="awards__cell"></th>
-                    <th class="awards__cell">Año</th>
-                    <th class="awards__cell">Reconocimiento</th>
-                </tr>
-                <tr class="awards__row">
-                    <th class="awards__cell">1</th>
-                    <td class="awards__cell">2023</td>
-                    <td class="awards__cell">Mejor Proyecto de Datos</td>
-                </tr>
-                <tr class="awards__row">
-                    <th class="awards__cell">2</th>
-                    <td class="awards__cell">2024</td>
-                    <td class="awards__cell">Reconocimiento Académico</td>
-                </tr>
-            </table>
+        <section class="awards-portfolio" id="awards">
+            <h2 class="awards-portfolio__title subtitle">Awards and Honors</h2>
+            <div class="awards-portfolio__container">
+                <div class="awards-portfolio__item" style="background-image: linear-gradient(#0006,#0006), url('https://i.pinimg.com/564x/ce/08/4a/ce084ae0eb43c65d8b3be038287eae48.jpg');">
+                    <div class="awards-portfolio__content">
+                        <span class="awards-portfolio__name">Best Data Project</span>
+                        <span class="awards-portfolio__desc">Awarded for outstanding innovation in data visualization and analytics at ESPOL, 2023.</span>
+                    </div>
+                </div>
+                <div class="awards-portfolio__item" style="background-image: linear-gradient(#0006,#0006), url('https://i.pinimg.com/564x/6e/8b/3b/6e8b3b6e6e8b3b6e8b3b6e8b3b6e8b.jpg');">
+                    <div class="awards-portfolio__content">
+                        <span class="awards-portfolio__name">Academic Excellence</span>
+                        <span class="awards-portfolio__desc">Recognized for maintaining a top GPA and leadership in academic projects, 2024.</span>
+                    </div>
+                </div>
+                <div class="awards-portfolio__item" style="background-image: linear-gradient(#0006,#0006), url('https://i.pinimg.com/564x/7a/2b/1c/7a2b1c7a2b1c7a2b1c7a2b1c7a2b1c7a.jpg');">
+                    <div class="awards-portfolio__content">
+                        <span class="awards-portfolio__name">Hackathon Winner</span>
+                        <span class="awards-portfolio__desc">First place in ESPOL Hackathon for developing an AI-powered chatbot, 2023.</span>
+                    </div>
+                </div>
+                <div class="awards-portfolio__item" style="background-image: linear-gradient(#0006,#0006), url('https://i.pinimg.com/564x/2d/4e/5f/2d4e5f2d4e5f2d4e5f2d4e5f2d4e5f2d.jpg');">
+                    <div class="awards-portfolio__content">
+                        <span class="awards-portfolio__name">Power BI Challenge</span>
+                        <span class="awards-portfolio__desc">Winner of the Power BI visualization challenge for creative dashboard design, 2024.</span>
+                    </div>
+                </div>
+                <div class="awards-portfolio__item" style="background-image: linear-gradient(#0006,#0006), url('https://i.pinimg.com/564x/3c/5d/6e/3c5d6e3c5d6e3c5d6e3c5d6e3c5d6e3c.jpg');">
+                    <div class="awards-portfolio__content">
+                        <span class="awards-portfolio__name">Team Leadership Award</span>
+                        <span class="awards-portfolio__desc">Recognized for exceptional leadership and teamwork in software projects, 2023.</span>
+                    </div>
+                </div>
+                <div class="awards-portfolio__item" style="background-image: linear-gradient(#0006,#0006), url('https://i.pinimg.com/564x/4f/6e/7d/4f6e7d4f6e7d4f6e7d4f6e7d4f6e7d4f.jpg');">
+                    <div class="awards-portfolio__content">
+                        <span class="awards-portfolio__name">AI Innovation Prize</span>
+                        <span class="awards-portfolio__desc">Prize for innovative use of AI in academic and extracurricular projects, 2024.</span>
+                    </div>
+                </div>
+            </div>
         </section>
-
         <section class="references" id="references">
-            <h2 class="references__subtitle subtitle">References</h2>
-            <article class="references__item reference">
-                <blockquote class="reference__quote">
-                    “Alex siempre mostró un alto nivel de compromiso y responsabilidad en cada proyecto que lideró.”
-                </blockquote>
-                <p class="reference__info">
-                    <span class="reference__name">Carlos Mera</span>
-                    <span class="reference__position">Gerente de Proyectos en TechSolutions</span>
-                    <span class="reference__relation">Trabajó con Alex en el desarrollo de sistemas empresariales, destacando su liderazgo y capacidad de trabajo en equipo.</span>
-                </p>
-            </article>
-            <article class="references__item reference">
-                <blockquote class="reference__quote">
-                    “Su creatividad y habilidades técnicas fueron fundamentales para el éxito de nuestras implementaciones.”
-                </blockquote>
-                <p class="reference__info">
-                    <span class="reference__name">Bruno Romero</span>
-                    <span class="reference__position">Jefe de Innovación en DataCorp</span>
-                    <span class="reference__relation">Colaboró con Alex en proyectos de análisis de datos, resaltando su pensamiento innovador y dedicación.</span>
-                </p>
-            </article>
-            <article class="references__item reference">
-                <blockquote class="reference__quote">
-                    “Alex demostró una rápida adaptación a nuevos retos y una excelente comunicación con el equipo.”
-                </blockquote>
-                <p class="reference__info">
-                    <span class="reference__name">Carmen Vaca</span>
-                    <span class="reference__position">Líder de Equipo en BI Solutions</span>
-                    <span class="reference__relation">Supervisó a Alex durante su pasantía, valorando su proactividad y aprendizaje constante.</span>
-                </p>
-            </article>
+            <h2 class="references__title subtitle">References</h2>
+            <div class="references__list">
+                <article class="reference">
+                    <img class="reference__photo" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Mera">
+                    <blockquote class="reference__quote">
+                        “Alex siempre mostró un alto nivel de compromiso y responsabilidad en cada proyecto que lideró.”
+                    </blockquote>
+                    <p class="reference__statement">
+                        Carlos Mera, Gerente de Proyectos en TechSolutions. Destacó el liderazgo y la capacidad de trabajo en equipo de Alex.
+                    </p>
+                    <a class="reference__email" href="mailto:carlos.mera@techsolutions.com">carlos.mera@techsolutions.com</a>
+                </article>
+                <article class="reference">
+                    <img class="reference__photo" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Bruno Romero">
+                    <blockquote class="reference__quote">
+                        “Su creatividad y habilidades técnicas fueron fundamentales para el éxito de nuestras implementaciones.”
+                    </blockquote>
+                    <p class="reference__statement">
+                        Bruno Romero, Jefe de Innovación en DataCorp. Resaltó el pensamiento innovador y dedicación de Alex.
+                    </p>
+                    <a class="reference__email" href="mailto:bruno.romero@datacorp.com">bruno.romero@datacorp.com</a>
+                </article>
+                <article class="reference">
+                    <img class="reference__photo" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Carmen Vaca">
+                    <blockquote class="reference__quote">
+                        “Alex demostró una rápida adaptación a nuevos retos y una excelente comunicación con el equipo.”
+                    </blockquote>
+                    <p class="reference__statement">
+                        Carmen Vaca, Líder de Equipo en BI Solutions. Valoró la proactividad y aprendizaje constante de Alex.
+                    </p>
+                    <a class="reference__email" href="mailto:carmen.vaca@bisolutions.com">carmen.vaca@bisolutions.com</a>
+                </article>
+                <!-- Puedes agregar más referencias aquí -->
+            </div>
         </section>
     </main>
 
     <section class="contact-form" id="contact-form">
-        <h2 class="contact-form__subtitle subtitle">Contact Form</h2>
-        <form class="contact-form__form" action="#" method="post">
-            <label class="contact-form__label" for="fullname">Full Name:</label>
-            <input class="contact-form__input" type="text" id="fullname" name="fullname" required>
-
-            <label class="contact-form__label" for="reason">Reason for Contact:</label>
-            <select class="contact-form__select" id="reason" name="reason" required>
-                <option class="contact-form__option" value="" disabled selected>Select an option</option>
-                <option class="contact-form__option" value="job">Job Opportunity</option>
-                <option class="contact-form__option" value="collaboration">Collaboration</option>
-                <option class="contact-form__option" value="other">Other</option>
-            </select>
-
-            <fieldset class="contact-form__fieldset">
-                <legend class="contact-form__legend">Preferred Contact Method:</legend>
-                <label class="contact-form__radio-label">
-                    <input class="contact-form__radio" type="radio" name="contact_method" value="email" required>
-                    Email
-                </label>
-                <label class="contact-form__radio-label">
-                    <input class="contact-form__radio" type="radio" name="contact_method" value="phone" required>
-                    Phone
-                </label>
-            </fieldset>
-
-            <fieldset class="contact-form__fieldset">
-                <legend class="contact-form__legend">Topics of Interest:</legend>
-                <label class="contact-form__checkbox-label">
-                    <input class="contact-form__checkbox" type="checkbox" name="topics" value="data" required>
-                    Data Analysis
-                </label>
-                <label class="contact-form__checkbox-label">
-                    <input class="contact-form__checkbox" type="checkbox" name="topics" value="ai" required>
-                    Artificial Intelligence
-                </label>
-                <label class="contact-form__checkbox-label">
-                    <input class="contact-form__checkbox" type="checkbox" name="topics" value="visualization" required>
-                    Data Visualization
-                </label>
-            </fieldset>
-
-            <label class="contact-form__label" for="message">Message:</label>
-            <textarea class="contact-form__textarea" id="message" name="message" rows="4" required></textarea>
-
-            <button class="contact-form__button" type="submit">Send</button>
+        <h2 class="contact-form__subtitle subtitle">Contact Me</h2>
+        <form class="contact-form__form" action="mailto:tuemail@dominio.com" method="POST" enctype="text/plain" autocomplete="on">
+            <div class="contact-form__row">
+                <label class="contact-form__label" for="fullname">Full Name</label>
+                <input class="contact-form__input" type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="contact-form__row">
+                <label class="contact-form__label" for="email">Email</label>
+                <input class="contact-form__input" type="email" id="email" name="email" required>
+            </div>
+            <div class="contact-form__row">
+                <label class="contact-form__label" for="project-type">Project Type</label>
+                <select class="contact-form__select" id="project-type" name="project-type" required>
+                    <option value="" disabled selected>Select a project type</option>
+                    <option value="web">Web Development</option>
+                    <option value="data">Data Analysis</option>
+                    <option value="ai">AI/ML Solution</option>
+                    <option value="dashboard">Dashboard/BI</option>
+                    <option value="consulting">Consulting</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="contact-form__row">
+                <label class="contact-form__label" for="budget">Estimated Budget (USD)</label>
+                <input class="contact-form__input" type="number" id="budget" name="budget" min="0" step="any" placeholder="Optional">
+            </div>
+            <div class="contact-form__row">
+                <label class="contact-form__label" for="contact-method">Preferred Contact Method</label>
+                <select class="contact-form__select" id="contact-method" name="contact-method" required>
+                    <option value="" disabled selected>Select a method</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="whatsapp">WhatsApp</option>
+                </select>
+            </div>
+            <div class="contact-form__row">
+                <label class="contact-form__label" for="message">Project Details</label>
+                <textarea class="contact-form__textarea" id="message" name="message" rows="5" required placeholder="Describe your project, goals, and timeline..."></textarea>
+            </div>
+            <button class="contact-form__submit" type="submit">Send Message</button>
         </form>
     </section>
 
     <footer class="footer">
-        <p class="footer__copyright">&copy; 2025 Alex Otero. All rights reserved.</p>
-    </footer>
+|        <div class="footer__container">
+            <p class="footer__text">
+                &copy; 2025 Alex Otero &mdash; Software Engineer &amp; Data Enthusiast
+            </p>
+            <div class="footer__links">
+                <a class="footer__link" href="mailto:adotero@espol.edu.ec" title="Email"><span aria-hidden="true">📧</span> Email</a>
+                <a class="footer__link" href="https://linkedin.com/in/alexotero" target="_blank" rel="noopener" title="LinkedIn"><span aria-hidden="true">💼</span> LinkedIn</a>
+                <a class="footer__link" href="https://alexotero.dev" target="_blank" rel="noopener" title="Website"><span aria-hidden="true">🌐</span> Website</a>
+                <a class="footer__link" href="tel:+593999999999" title="Phone"><span aria-hidden="true">📱</span> Phone</a>
+            </div>
+            <p class="footer__copyright">
+                Crafted with <span aria-hidden="true" style="color:#eebbc3;">&#10084;&#65039;</span> in Ecuador.
+            </p>
+        </div>
+    </footer> 
+</body> 
+</html>   
+<script>
+document.querySelector('.nav__toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.nav');
+    nav.classList.toggle('nav--open');
+    this.setAttribute('aria-expanded', nav.classList.contains('nav--open'));
+});
+</script>
 </body>
 </html>

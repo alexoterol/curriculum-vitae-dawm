@@ -4,6 +4,7 @@
   --headline-color: #fffffe;
   --background-color: #232946;
   --pharagraph-color: #b8c1ec;
+  --subtitle-color: rgba(211, 211, 211, 0.89);
   --font-title: "Playfair Display", serif;
   --font-subtitle: "Chivo", sans-serif;
   --font-pharagraph: "Chivo", sans-serif;
@@ -14,7 +15,7 @@
 * {
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0:
+  margin: 0;
   padding: 0;
 
 }
@@ -24,6 +25,9 @@ body {
   color: var(--pharagraph-color);
   font-family: var(--font-pharagraph);
   margin: var(--espaciado-base);
+  min-height: 100vh;
+  max-width: 70vw;
+  margin: auto;
 }
 
 h1 {
@@ -58,9 +62,7 @@ p {
 }
 
 .subtitle {
-  color: rgb(151 156 165 / 0.89);
-  /* Cambiarle el color al subtite por la variable subtitle-color */
-  text-transform: uppercase;
+  color: var(--subtitle-color);
 }
 
 footer p {

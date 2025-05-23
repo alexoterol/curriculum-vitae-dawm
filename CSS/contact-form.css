@@ -1,0 +1,102 @@
+.contact-form {
+  max-width: 520px;
+  margin: 3rem auto 2rem auto;
+  padding: 2.2rem 1.5rem 2rem 1.5rem;
+  background: linear-gradient(120deg, #232946 80%, #181c24 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #23294633, 0 1.5px 8px #eebbc355;
+}
+
+.contact-form__subtitle {
+  text-align: center;
+  color: var(--headline-color, #eebbc3);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px #23294644;
+}
+
+.contact-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-form__label {
+  color: var(--link-color, #eebbc3);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+  letter-spacing: 0.2px;
+}
+
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+  background: #181c24;
+  color: var(--pharagraph-color, #b8c1ec);
+  border: 1.5px solid var(--subtitle-color, #b8c1ec55);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  font-family: inherit;
+  resize: none;
+}
+
+.contact-form__input:focus,
+.contact-form__select:focus,
+.contact-form__textarea:focus {
+  border: 1.5px solid var(--link-color, #eebbc3);
+  box-shadow: 0 0 0 2px #eebbc355;
+}
+
+.contact-form__select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23eebbc3' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2em;
+}
+
+.contact-form__textarea {
+  min-height: 110px;
+  max-height: 260px;
+  resize: vertical;
+}
+
+.contact-form__submit {
+  margin-top: 1.2rem;
+  background: var(--link-color, #eebbc3);
+  color: #232946;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  box-shadow: 0 2px 8px #23294622;
+  letter-spacing: 0.5px;
+}
+
+.contact-form__submit:hover,
+.contact-form__submit:focus {
+  background: #232946;
+  color: var(--link-color, #eebbc3);
+  transform: translateY(-2px) scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 1.2rem 0.4rem 1.2rem 0.4rem;
+  }
+}

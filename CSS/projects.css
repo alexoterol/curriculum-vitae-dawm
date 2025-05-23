@@ -50,3 +50,140 @@
   border-radius: 4px;
   align-self: flex-end;
 }
+
+/* Carrusel horizontal estilizado */
+.projects__carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--link-color) var(--background-color);
+  scrollbar-width: thin;
+  /* Fondo para dar contraste al scroll */
+  background: linear-gradient(90deg, #232946 80%, #181c24 100%);
+  border-radius: 18px;
+}
+
+/* Scrollbar bonito para navegadores Webkit */
+.projects__carousel::-webkit-scrollbar {
+  height: 10px;
+  background: var(--background-color);
+  border-radius: 8px;
+}
+.projects__carousel::-webkit-scrollbar-thumb {
+  background: var(--link-color);
+  border-radius: 8px;
+}
+.projects__carousel::-webkit-scrollbar-thumb:hover {
+  background: #eebbc3cc;
+}
+
+/* Item formato 9:16 */
+.projects__item {
+  background: #232946;
+  color: #b8c1ec;
+  border-radius: 18px;
+  min-width: 225px;
+  max-width: 225px;
+  aspect-ratio: 9/16;
+  flex: 0 0 auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.projects__item:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px #eebbc355;
+}
+
+/* Imagen ocupa la mitad superior */
+.projects__image {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 18px 18px 0 0;
+  flex-shrink: 0;
+}
+
+/* Info ocupa la mitad inferior, bien distribuida */
+.projects__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 0;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  gap: 0.3rem;
+}
+
+/* Título en una línea */
+.projects__title {
+  font-size: 1.05rem;
+  color: var(--headline-color);
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem;
+}
+
+/* Tecnologías en una línea */
+.projects__tech {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.projects__tech li {
+  background: #eebbc3;
+  color: #232946;
+  border-radius: 6px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Descripción y fecha en una línea */
+.projects__description {
+  font-size: 0.95rem;
+  color: var(--pharagraph-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.1rem;
+}
+
+.projects__date {
+  font-size: 0.85rem;
+  color: var(--subtitle-color);
+  text-align: right;
+  margin-bottom: 0.1rem;
+}
+
+/* Flecha */
+.projects__arrow {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 1.7rem;
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.projects__arrow:hover {
+  color: #fff;
+}

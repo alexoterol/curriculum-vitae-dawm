@@ -1,3 +1,95 @@
+/* 1. Box sizing y reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Tipografía base y colores */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background: var(--background-color, #181c24);
+  color: var(--pharagraph-color, #b8c1ec);
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: var(--background-color, #181c24);
+  color: var(--pharagraph-color, #b8c1ec);
+  line-height: 1.6;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 3. Imágenes y multimedia */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* 4. Listas y enlaces */
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: var(--link-color, #eebbc3);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+a:hover, a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* 5. Inputs y formularios */
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* 6. Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--headline-color, #eebbc3);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.7em;
+}
+
+/* 7. Scrollbar (opcional) */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #232946;
+}
+::-webkit-scrollbar-thumb {
+  background: #eebbc3;
+  border-radius: 8px;
+}
+
+/* 8. Responsive containers */
+.container, .main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--pharagraph-color);
@@ -17,9 +109,4 @@ p {
   margin-bottom: var(--espaciado-base);
   font-size: 1.2rem;
   line-height: 1.5;
-}
-
-.subtitle {
-  color: rgb(151 156 165 / 0.89);
-  text-transform: uppercase;
 }

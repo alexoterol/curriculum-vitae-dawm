@@ -47,3 +47,107 @@
   align-items: center;
   justify-content: center;
 }
+
+.awards-portfolio {
+  background: var(--background-color, #18233f);
+  color: #fff;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 2.5rem 0 2rem 0;
+  justify-content: center;
+}
+
+.awards-portfolio__title {
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--headline-color);
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px #23294644;
+}
+
+.awards-portfolio__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 18px;
+  padding: 16px;
+  min-height: 50vh;
+}
+
+.awards-portfolio__item {
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 14px;
+  min-height: 180px;
+  min-width: 0;
+  box-shadow: 0 4px 24px #23294655, 0 1.5px 8px #eebbc355;
+  transition: outline 0.2s, opacity 0.2s, transform 0.2s;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid transparent;
+}
+
+.awards-portfolio__item:hover {
+  opacity: 0.82;
+  outline: 2px solid var(--link-color, #eebbc3);
+  transform: scale(1.018);
+  z-index: 2;
+}
+
+.awards-portfolio__content {
+  width: 100%;
+  padding: 1.2rem 1rem 1rem 1rem;
+  background: linear-gradient(0deg, #181c24ee 80%, #23294644 100%);
+  border-radius: 0 0 14px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.awards-portfolio__name {
+  font-size: 1.18rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--link-color, #eebbc3);
+  padding: 6px 18px;
+  border-radius: 6px;
+  margin-bottom: 0.2rem;
+  box-shadow: 0 2px 8px #23294633;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 10px #23294699;
+}
+
+.awards-portfolio__desc {
+  font-size: 1rem;
+  color: var(--pharagraph-color, #b8c1ec);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-align: left;
+  text-shadow: 1px 1px 6px #23294699;
+  max-width: 90%;
+  margin-top: 0.1rem;
+}
+
+/* Responsive grid for larger screens */
+@media (min-width: 700px) {
+  .awards-portfolio__container {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  .awards-portfolio__item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 340px;
+  }
+  .awards-portfolio__item:nth-child(5) {
+    grid-column: span 2;
+  }
+}
