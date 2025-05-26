@@ -79,6 +79,15 @@
   border: 1px solid transparent;
 }
 
+/* Puedes agregar esto a tu CSS si los SVG se ven desalineados o muy grandes/pequeños */
+/* filepath: /workspaces/curriculum-vitae-dawm/CSS/skills.css */
+.skills__icon[role="img"] {
+  width: 4.0rem;
+  height: 4.1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .skills__icon:hover,
 .skills__icon:focus {
   background: var(--link-color);
