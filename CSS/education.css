@@ -104,8 +104,8 @@
 }
 
 .education__image {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   border-radius: 14px;
   background: #fff;

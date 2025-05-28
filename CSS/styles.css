@@ -82,24 +82,63 @@ nav > ul {
 section {
   /* borde de grosor 0.2 en puntos, estilo sólido y color hexadecimal #cedddd  */
   border: 0.2pt solid #cedddd;
-
-
   /* margen (espacio externo) superior, derecho, abajo e izquierda */
   margin: 4px 2px 8px 2px;
-
-  /* relleno (espacio interno) de
-  1.5% en la parte superior e inferior y
-  0.8% a los lados derecho e izquierdo. */
   padding: 1.5% 0.8%;
-
-  /* Margen inferior ajustado */
+  /* Margen inferior ajstado */
   margin-bottom: 1.2rem;
-
   /* Bordes redondeados */
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-
   /* Sombra */
   box-shadow: -21px -20px 0px 0px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  border: none;
+  margin: 2.5rem auto 2rem auto;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #23294633, 0 1.5px 8px #eebbc355;
+  background: linear-gradient(120deg, #232946 80%, #181c24 100%);
+  max-width: 1100px;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+section:hover,
+section:focus-within {
+  box-shadow: 0 8px 32px #eebbc355, 0 2px 12px #23294633;
+  background: linear-gradient(120deg, #232946 60%, #181c24 100%);
+}
+
+.skills, .education, .projects, .experience, .references, .contact-form {
+  margin-bottom: 2.5rem;
+}
+
+.skills {
+  background: linear-gradient(120deg, #232946 60%, #232946 100%);
+  border-left: 5px solid var(--link-color, #eebbc3);
+}
+
+.education {
+  background: linear-gradient(120deg, #181c24 80%, #232946 100%);
+  border-left: 5px solid #b8c1ec;
+}
+
+.projects {
+  background: linear-gradient(120deg, #232946 80%, #181c24 100%);
+  border-left: 5px solid #eebbc3;
+}
+
+.experience {
+  background: linear-gradient(120deg, #181c24 80%, #232946 100%);
+  border-left: 5px solid #eebbc3;
+}
+
+.references {
+  background: linear-gradient(120deg, #232946 80%, #181c24 100%);
+  border-left: 5px solid #b8c1ec;
+}
+
+.contact-form {
+  background: linear-gradient(120deg, #232946 80%, #181c24 100%);
+  border-left: 5px solid #eebbc3;
 }
