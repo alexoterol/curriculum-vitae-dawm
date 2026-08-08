@@ -30,8 +30,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    background: var(--color-bg);
+    background: var(--color-dark);
     border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-soft);
     opacity: 0;
     padding: var(--padding-s);
     transition: opacity 0s;
@@ -63,6 +65,7 @@
     background: linear-gradient(transparent, var(--color-accent)) center no-repeat;
     background-position: 0px 100px;
     border-bottom: var(--border-width) solid transparent;
+    border-radius: var(--radius-s);
     padding: var(--text-padding-h) var(--padding-s);
     text-decoration: none;
 }
@@ -80,8 +83,10 @@
 .container__switch {
     height: var(--button-height);
     width: var(--button-width);
-    background: var(--color-bg);
+    background: var(--color-dark);
     border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-m) var(--radius-m) 0 0;
+    box-shadow: var(--shadow-soft);
     padding: var(--padding-s);
     margin-left: auto;
 }

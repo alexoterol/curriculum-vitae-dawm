@@ -14,21 +14,25 @@
     align-items: center;
     gap: var(--padding-m, 1rem);
     
-    background-color: transparent;
-    border: var(--border-width, 3px) solid var(--color-accent);
+    border: var(--border-width, 3px) solid var(--color-border);
+    border-radius: var(--radius-m, 14px);
+    box-shadow: var(--shadow-soft);
     padding: var(--padding-m, 1rem);
-    
+    overflow: hidden;
+
     cursor: pointer;
     transition: all 0.3s ease;
-    
+
     background: linear-gradient(transparent, var(--color-accent, #333));
+    background-color: var(--color-dark);
     background-repeat: no-repeat;
     background-position: 0px 200px;
 }
 
 .card-item:hover {
     background-position: 0px 30px;
-    box-shadow: 0 0 10px 1px var(--color-accent, #333);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-soft-hover);
     transform: translateY(-3px);
 }
 

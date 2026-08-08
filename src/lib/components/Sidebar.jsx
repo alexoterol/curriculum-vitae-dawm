@@ -125,6 +125,24 @@ function Sidebar({ onNavigate }) {
                     </svg>
                     <p>{t('sidebar.music')}</p>
                 </a>
+
+                <a
+                    className="sidebar-link"
+                    href="/playground"
+                    onClick={(e) => handleLinkClick(e, 'playground')}
+                >
+                    <svg
+                        className="sidebar-link-icon"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M2 1a1 1 0 0 0-1 1v1h4.586L7 4.414 8.414 3H14a1 1 0 0 0-1-1H7.5L6.5 1H2zM1 4v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5H8.586L7 3.586 6.586 4H1z"
+                            fillRule="evenodd"
+                        />
+                    </svg>
+                    <p>{t('sidebar.playground')}</p>
+                </a>
             </article>
         </div>
     );

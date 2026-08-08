@@ -17,40 +17,73 @@
 
 .content-grid {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    align-items: center;
-    justify-items: center;
-    gap: var(--padding-m);
-
+    grid-template-columns: minmax(14rem, 20rem) 1fr;
+    align-items: start;
+    justify-items: stretch;
+    gap: var(--padding-l, 2rem);
 }
 .images-showcase {
     display: flex;
     flex-direction: row;
     gap: var(--padding-m);
     align-items: center;
+    justify-content: center;
     width: 100%;
-    max-width: 90vw; 
     transition: width 0.3s ease;
 }
 
+.img-square,
+.img-rect {
+    border-radius: var(--radius-s, 8px);
+    border: var(--border-width, 2px) solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    background: var(--color-dark);
+    padding: 0.35rem;
+}
+
 .img-square {
-    max-width: 70%;
+    max-width: 65%;
     height: auto;
-    border-radius: 8px;
+    transform: rotate(-2deg);
 }
 
 .img-rect {
-    max-width: 30%;
-
-    border-radius: 8px;
+    max-width: 32%;
+    transform: rotate(2deg);
 }
 
 .bottom-section {
     width: 100%;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-l, 1.5rem);
+    align-items: stretch;
     padding: 1rem;
 }
 
+.currently-into {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-s, 0.5rem);
+    background: var(--color-dark);
+    border: var(--border-width, 2px) solid var(--color-border);
+    border-radius: var(--radius-m, 14px);
+    box-shadow: var(--shadow-soft);
+    padding: var(--padding-m, 1rem);
+}
+
+.section-label {
+    font-family: var(--font-mono, 'Courier New', monospace);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+}
+
+.section-label--center {
+    text-align: center;
+    margin-bottom: var(--padding-s, 0.5rem);
+}
 
 .slow-separator {
     display: flex;
@@ -60,17 +93,19 @@
     align-items: center;
     margin-top: var(--padding-x);
     background-color: var(--color-dark);
-    border-radius: 1rem 0 1rem 0;
+    border: var(--border-width, 2px) solid var(--color-border);
+    border-radius: var(--radius-m, 14px);
+    box-shadow: var(--shadow-soft);
 }
 
 .slow-text {
-    font-family: "vergilia", sans-serif; 
-    font-size: 2rem; 
+    font-family: "vergilia", sans-serif;
+    font-size: 2rem;
     font-weight: bold;
-    color: #E15C56; 
+    color: var(--color-warning);
     letter-spacing: 2px;
     position: relative;
-    white-space: nowrap;  
+    white-space: nowrap;
 }
 
 

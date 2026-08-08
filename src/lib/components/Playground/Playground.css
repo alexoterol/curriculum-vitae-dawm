@@ -1,0 +1,112 @@
+.playground-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--padding-l, 2rem);
+    padding-bottom: 5rem;
+}
+
+.playground-intro {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 46rem;
+    margin-top: -1rem;
+}
+
+.playground-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m, 1rem);
+    border: 3px solid var(--color-fg);
+    padding: var(--padding-l, 1.5rem);
+    background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+    background-size: 18px 18px;
+}
+
+.playground-section--apps {
+    background-color: color-mix(in srgb, var(--color-sage) 10%, var(--color-bg));
+    box-shadow: 6px 6px 0 var(--color-sage);
+}
+
+.playground-section--arcade {
+    background-color: color-mix(in srgb, var(--color-rose) 12%, var(--color-bg));
+    box-shadow: 6px 6px 0 var(--color-rose);
+}
+
+.playground-section__heading h2 {
+    font-family: var(--font-pixel);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0.5rem 0 0.4rem 0;
+}
+
+.playground-section__heading p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.pixel-tag {
+    display: inline-block;
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    letter-spacing: 0;
+    padding: 0.4rem 0.6rem;
+    border: 2px solid var(--color-fg);
+    color: var(--color-dark);
+}
+
+.pixel-tag--apps {
+    background-color: var(--color-sage);
+}
+
+.pixel-tag--arcade {
+    background-color: var(--color-rose);
+}
+
+.playground-arcade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: var(--padding-m, 1rem);
+}
+
+/* Divider between "My Apps" and "Web Arcade" — a little game-transition banner */
+.playground-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-m, 1rem);
+    margin: -0.5rem 0;
+}
+
+.playground-divider__line {
+    flex: 1;
+    height: 4px;
+    background-image: repeating-linear-gradient(
+        to right,
+        var(--color-fg) 0,
+        var(--color-fg) 8px,
+        transparent 8px,
+        transparent 16px
+    );
+}
+
+.playground-divider__badge {
+    font-family: var(--font-pixel);
+    font-size: 0.7rem;
+    white-space: nowrap;
+    padding: 0.5rem 0.8rem;
+    background-color: var(--color-fg);
+    color: var(--color-bg);
+    border: 2px solid var(--color-fg);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 480px) {
+    .playground-divider__badge {
+        font-size: 0.55rem;
+        padding: 0.4rem 0.5rem;
+    }
+}

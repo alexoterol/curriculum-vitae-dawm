@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Window.css';
 
-function Window({ title, children }) {
+function Window({ title, children, className = '' }) {
     return (
-        <div className="window-container">
+        <div className={`window-container ${className}`.trim()}>
             <div className="window-titlebar">
                 <span className="window-titlebar__title">{title}</span>
                 <div className="window-titlebar__controls">
@@ -23,6 +23,7 @@ function Window({ title, children }) {
 Window.propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
 };
 
 export default Window;

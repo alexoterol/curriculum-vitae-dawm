@@ -36,12 +36,16 @@ function MainContent({ onNavigate }) {
                             <div className="interaction-area">
                                 <CharacterContainer />
                             </div>
-                            <SpaceAesthetic imageNames={imageNames} />
+                            <div className="currently-into">
+                                <p className="section-label">{t('mainContent.currentlyInto')}</p>
+                                <SpaceAesthetic imageNames={imageNames} />
+                            </div>
                         </div>
                     </div>
                     <div className='slow-separator'>
                         <p className='slow-text'>{t('mainContent.slowText')}</p>
                     </div>
+                    <p className="section-label section-label--center">{t('mainContent.explore')}</p>
                     <CardContainer onNavigate={onNavigate} />
                 </main>
             </div>

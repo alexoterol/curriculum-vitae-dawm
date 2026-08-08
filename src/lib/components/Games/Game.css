@@ -4,18 +4,21 @@
     align-items: center;
     justify-content: space-between;
     
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: var(--color-dark, #fff);
+    border: var(--border-width, 2px) solid var(--color-border);
     border-left: 6px solid var(--tier-color, #888);
+    border-radius: var(--radius-m, 14px);
+    box-shadow: var(--shadow-soft);
     padding: var(--padding-l, 1rem) var(--padding-m, 1rem);
-    
+
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .game-item:hover {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: var(--color-dark, #fff);
     transform: translateX(5px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-soft-hover);
 }
 
 .game-item__content {

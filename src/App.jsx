@@ -8,6 +8,7 @@ import Contact from './lib/components/Contact/Contact';
 import Sidebar from './lib/components/Sidebar';
 import Music from './lib/components/Music/Music';
 import Games from './lib/components/Games/Games'
+import Playground from './lib/components/Playground/Playground';
 import { LanguageProvider } from './lib/contexts/LanguageContext';
 import frame from './lib/assets/images/frame.png';
 
@@ -29,6 +30,8 @@ function App() {
         return <Games onNavigate={setCurrentView} />
       case 'music':
         return <Music onNavigate={setCurrentView} />
+      case 'playground':
+        return <Playground onNavigate={setCurrentView} />
       default:
         return <MainContent onNavigate={setCurrentView} />;
     }

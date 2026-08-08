@@ -1,0 +1,195 @@
+/* Pixel-art window chrome, scoped to the Playground's folder browser only */
+.window-container.window-container--pixel {
+    border: 3px solid var(--color-fg);
+    border-radius: 0;
+    box-shadow: 5px 5px 0 var(--color-border), var(--shadow-soft);
+    clip-path: polygon(
+        0 6px, 6px 6px, 6px 0,
+        calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+        100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%,
+        6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px)
+    );
+}
+
+.window-container--pixel .window-titlebar {
+    border-bottom: 3px solid var(--color-fg);
+}
+
+.window-container--pixel .window-titlebar__title {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    letter-spacing: 0;
+}
+
+.window-container--pixel .window-control {
+    font-family: var(--font-pixel);
+    font-size: 0.7rem;
+}
+
+.folder-view {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: var(--padding-m, 1rem);
+}
+
+.folder-view__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+    gap: var(--padding-s, 0.5rem);
+    align-content: start;
+    background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+    background-size: 14px 14px;
+    background-color: var(--color-bg, #fff);
+    border: var(--border-width, 2px) solid var(--color-border);
+    border-radius: var(--radius-s, 8px);
+    padding: var(--padding-s, 0.5rem);
+}
+
+.folder-view__file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: var(--padding-s, 0.5rem) 0.25rem;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.folder-view__file:hover {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-border);
+}
+
+.folder-view__file--active {
+    background-color: var(--color-accent);
+    border-color: var(--color-fg);
+}
+
+.folder-view__file-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    image-rendering: pixelated;
+}
+
+.folder-view__file-icon svg {
+    width: 100%;
+    height: 100%;
+    color: var(--color-accent);
+}
+
+.folder-view__file--active .folder-view__file-icon svg {
+    color: var(--color-dark);
+}
+
+.folder-view__file-name {
+    font-family: var(--font-mono, 'Courier New', monospace);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.folder-view__file--active .folder-view__file-name {
+    color: var(--color-dark);
+    font-weight: bold;
+}
+
+.folder-view__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background-color: var(--color-bg, #fff);
+    border: var(--border-width, 2px) solid var(--color-border);
+    border-radius: var(--radius-s, 8px);
+    padding: var(--padding-m, 1rem);
+}
+
+.folder-view__details-title {
+    font-family: var(--font-pixel);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.folder-view__details-title::before {
+    content: '▸ ';
+    color: var(--color-accent);
+}
+
+.folder-view__details-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.folder-view__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-family: var(--font-mono, 'Courier New', monospace);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.folder-view__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.folder-view__tag {
+    font-family: var(--font-mono, 'Courier New', monospace);
+    font-size: 0.7rem;
+    padding: 0.15rem 0.55rem;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-fg);
+    color: var(--color-text);
+}
+
+.folder-view__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.2rem;
+}
+
+.folder-view__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono, 'Courier New', monospace);
+    font-size: 0.75rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0;
+    border: 2px solid var(--color-fg);
+    box-shadow: 3px 3px 0 var(--color-fg);
+    background-color: var(--color-bg);
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.folder-view__button svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    fill: currentColor;
+}
+
+.folder-view__button:hover,
+.folder-view__button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.folder-view__button--primary {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 728px) {
+    .folder-view {
+        grid-template-columns: 1fr;
+    }
+}

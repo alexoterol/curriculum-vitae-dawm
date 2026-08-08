@@ -10,7 +10,8 @@ header {
   align-items: center;
 
   background-color: var(--color-bg);
-  border-bottom: var(--border-width) solid var(--color-accent);
+  border-bottom: var(--border-width) solid var(--color-border);
+  box-shadow: var(--shadow-soft);
   padding: var(--padding-m) var(--padding-main-x);
   padding-top: calc(var(--spacing) + 1rem);
 

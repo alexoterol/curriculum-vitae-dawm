@@ -1,0 +1,29 @@
+.game-screen {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-s, 0.5rem);
+    align-items: flex-start;
+}
+
+.game-screen__back {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    padding: 0.5rem 0.8rem;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 3px 3px 0 var(--color-fg);
+    color: var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.game-screen__back:hover,
+.game-screen__back:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.game-screen__stage {
+    display: flex;
+    justify-content: center;
+    padding: var(--padding-s, 0.5rem) 0;
+}

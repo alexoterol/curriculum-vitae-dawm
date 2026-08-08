@@ -31,8 +31,9 @@
     background-color: var(--color-dark, #1a1a1a);
     overflow: hidden;
     padding: var(--padding-s, 0.5rem);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border: 2px solid var(--color-border, rgba(0, 0, 0, 0.1));
+    border-radius: var(--radius-m, 14px);
+    box-shadow: var(--shadow-soft);
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -40,7 +41,7 @@
 .project-container:hover {
     border-color: var(--color-accent, #ff6b6b);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-soft-hover);
 }
 
 .project-container:hover::before {

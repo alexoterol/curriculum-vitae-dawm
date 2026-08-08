@@ -17,9 +17,11 @@
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0;
-    border: var(--border-width, 2px) solid var(--color-accent, #444);
-    background: transparent;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    border: var(--border-width, 2px) solid var(--color-border);
+    border-radius: var(--radius-m, 14px);
+    background: var(--color-dark);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
 }
 
 .metadata-character-about-me {
@@ -27,9 +29,9 @@
     display: flex;
     flex-direction: column;
     gap: var(--padding-s, 0.5rem);
-    border-right: var(--border-width, 2px) solid var(--color-accent, #444);
+    border-right: var(--border-width, 2px) solid var(--color-border);
     padding: var(--padding-m, 1rem);
-    background: var(--color-bg, #1a1a1a);
+    background: var(--color-bg-secondary);
 }
 
 .img-rect-about-me {
@@ -38,9 +40,10 @@
     justify-content: center;
     padding: var(--padding-s, 0.5rem);
     width: auto;
-    object-fit: cover; 
+    object-fit: cover;
     image-rendering: pixelated;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    border-radius: var(--radius-s, 8px);
+    filter: drop-shadow(0 4px 10px rgba(74, 59, 49, 0.25));
 }
 
 .character-stats {
@@ -59,7 +62,7 @@
     font-size: 0.9rem;
     letter-spacing: 0.5px;
     padding: var(--padding-s, 0.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .stat-row:last-child {

@@ -11,54 +11,75 @@
 .tabs-navigation {
     display: flex;
     flex-direction: row;
-    width: 18rem;
-    border-bottom: var(--border-width, 2px) solid var(---color-accent, #444);
-    background: var(--color-bg, #1a1a1a);
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2px;
+    border-bottom: var(--border-width, 2px) solid var(--color-border);
+    background: var(--color-bg-secondary);
+    padding: 2px;
+    border-radius: var(--radius-s, 8px) var(--radius-s, 8px) 0 0;
 }
 
 .tab-button {
-    flex: 1;
+    flex: 1 1 5.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
     padding: var(--padding-s, 0.5rem);
-    background: transparent;
-    border: none;
-    border-right: var(--border-width, 2px) solid var(--color-accent, #444);
+    background: var(--color-dark);
+    border: var(--border-width, 2px) solid transparent;
+    border-radius: var(--radius-s, 6px);
     cursor: pointer;
-    font-size: 1.5rem;
     transition: all 0.3s ease;
     position: relative;
 }
 
 .tab-button:hover {
-    background: var(--color-bg-hover, var(--color-hover));
+    border-color: var(--color-border);
     transform: translateY(-2px);
 }
 
 .tab-button.active {
-    background: var(--color-bg-secondary, #2a2a2a);
-    position: relative;
-}
-
-.tab-button.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--color-accent, #ff6b6b);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .tab-icon {
-    max-height: 2rem;
+    max-height: 1.6rem;
     display: inline-block;
-    filter: brightness(100%) invert(100%);
-
-    transition: filter 0.3s ease;
+    opacity: 0.6;
+    filter: drop-shadow(0 1px 1px rgba(74, 59, 49, 0.15));
+    transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 .tab-button.active .tab-icon,
 .tab-button:hover .tab-icon {
-    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.tab-button.active .tab-icon {
+    filter: brightness(0) invert(1);
+}
+
+.tab-label {
+    font-family: var(--font-mono, 'Courier New', monospace);
+    font-size: 0.65rem;
+    letter-spacing: 0.3px;
+    color: var(--color-text-secondary);
+    text-align: center;
+    line-height: 1.1;
+    transition: color 0.3s ease;
+}
+
+.tab-button.active .tab-label {
+    color: var(--color-dark);
+    font-weight: bold;
+}
+
+.tab-button:hover .tab-label {
+    color: var(--color-text);
 }
 
 .interaction-area-about-me {
@@ -85,8 +106,10 @@
 }
 
 .content-title{
-    font-size: 2.5rem;
-    line-height: 1.8;
+    font-family: var(--font-main);
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin-bottom: var(--padding-m, 1rem);
 }
 
 /* ============================================
@@ -102,7 +125,8 @@
 
 .presentation-text p {
     padding: var(--padding-s, 0.5rem);
-    background: var(--color-bg, #1a1a1a);
+    background: var(--color-bg-secondary);
+    border-radius: 0 var(--radius-s, 6px) var(--radius-s, 6px) 0;
     border-left: 3px solid var(--color-accent, #ff6b6b);
     padding-left: var(--padding-m, 1rem);
 }
@@ -129,9 +153,10 @@
     flex-wrap: wrap;
     gap: var(--padding-l, 1.5rem);
     padding: var(--padding-l, 1.5rem) var(--padding-m, 1rem);
-    background: transparent;
-    border: 2px solid var(--color-accent, #888);
-    border-radius: 4px;
+    background: var(--color-dark);
+    border: var(--border-width, 2px) solid var(--color-border);
+    border-radius: var(--radius-m, 12px);
+    box-shadow: var(--shadow-soft);
 }
 
 .tools-section legend {
@@ -175,13 +200,13 @@
     height: 100%;
     width: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 4px 8px rgba(74, 59, 49, 0.2));
     transition: filter 0.3s ease;
 }
 
 .tool-entry:hover img {
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6)) 
-            drop-shadow(0 0 10px var(--color-accent, rgba(255, 107, 107, 0.3)));
+    filter: drop-shadow(0 6px 12px rgba(74, 59, 49, 0.25))
+            drop-shadow(0 0 10px var(--color-accent, rgba(217, 133, 82, 0.4)));
 }
 
 /* ============================================
@@ -227,30 +252,17 @@
     position: relative;
 }
 
-.app-icon::after {
-    content: url("data:image/ico;base64, AAABAAIAICACAAEAAQAwAQAAJgAAACAgEAABAAQA6AIAAFYBAAAoAAAAIAAAAEAAAAABAAEAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAH///+B////gfv//4Hz//+B4f//geH//4Hg//+B4P//geB//4HwP/+B+B//gfgP54H8B8eB/gPHgf8Ah4H/AAeB/8AHgf/wB4H//AeB/+AHgf/gB4H///+B////gf///4AAAAAAAAAAAAAAAAAAAAAP///////////////8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAAD////////////////KAAAACAAAABAAAAAAQAEAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAACAgACAAAAAgACAAICAAADAwMAAgICAAAAA/wAA/wAAAP//AP8AAAD/AP8A//8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////////////////wAAAP////////////////8AAAD///8P////////////AAAA///wD////////////wAAAP//8AD///////////8AAAD///AAD///////////AAAA///wAA///////////wAAAP//8AAP//////////8AAAD///AAAP//////////AAAA///wAAAP/////////wAAAP///wAAAP////////8AAAD///8AAAAP////AP//AAAA////8AAAAP//8AD//wAAAP////8AAAAP//AA//8AAAD/////8AAAAA8AAP//AAAA//////AAAAAAAAD//wAAAP//////8AAAAAAA//8AAAD////////wAAAAAP//AAAA//////////AAAAD//wAAAP///////wAAAAAA//8AAAD///////8AAAAAAP//AAAA/////////////////wAAAP////////////////8AAAD/////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////////8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAAD////////////////");
-        position: absolute;
-        left: -25%;
-        bottom: -20%;
-        transform: scale(55%);
-    }
-
-.app-entry:hover .app-icon::before,
-.app-entry:hover .app-icon::after {
-    opacity: 1;
-}
-
 .app-icon img {
     height: 100%;
     width: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 2px 4px rgba(74, 59, 49, 0.2));
     transition: filter 0.3s ease;
 }
 
 .app-entry:hover .app-icon img {
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5)) 
-            drop-shadow(0 0 12px var(--color-accent, rgba(255, 107, 107, 0.2)));
+    filter: drop-shadow(0 4px 8px rgba(74, 59, 49, 0.25))
+            drop-shadow(0 0 12px var(--color-accent, rgba(217, 133, 82, 0.35)));
 }
 
 .app-name {
@@ -318,13 +330,13 @@
     width: auto;
     max-width: 10rem;
     object-fit: contain;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 4px 12px rgba(74, 59, 49, 0.2));
     transition: filter 0.3s ease;
 }
 
 .inventory-item:hover .inventory-image img {
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6)) 
-            drop-shadow(0 0 20px var(--color-accent, rgba(255, 107, 107, 0.2)));
+    filter: drop-shadow(0 8px 16px rgba(74, 59, 49, 0.25))
+            drop-shadow(0 0 20px var(--color-accent, rgba(217, 133, 82, 0.3)));
 }
 
 .inventory-name {
@@ -400,14 +412,14 @@
     width: 100%;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 10px 30px rgba(74, 59, 49, 0.25));
     transition: filter 0.3s ease;
-    border-radius: 4px;
+    border-radius: var(--radius-s, 6px);
 }
 
 .workspace-image:hover img {
-    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.7))
-            drop-shadow(0 0 20px var(--color-accent, rgba(255, 107, 107, 0.15)));
+    filter: drop-shadow(0 15px 40px rgba(74, 59, 49, 0.3))
+            drop-shadow(0 0 20px var(--color-accent, rgba(217, 133, 82, 0.25)));
 }
 
 .workspace-divider {
@@ -479,13 +491,13 @@
 .workspace-specs-grid .workspace-spec-item {
     text-align: left;
     padding: var(--padding-s, 0.5rem);
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--color-bg-secondary);
     border-left: 2px solid var(--color-accent, #888);
     transition: all 0.3s ease;
 }
 
 .workspace-specs-grid .workspace-spec-item:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-border-light);
     border-left-color: var(--color-accent, #ff6b6b);
     transform: translateX(5px);
 }

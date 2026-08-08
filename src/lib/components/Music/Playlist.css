@@ -4,19 +4,20 @@
     gap: var(--padding-m, 1rem);
     align-items: center;
     
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-dark);
+    border: var(--border-width, 2px) solid var(--color-border);
+    border-radius: var(--radius-s, 8px);
     padding: var(--padding-m, 1rem);
-    
+
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .playlist-item:hover {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: var(--color-dark);
     border-color: var(--color-accent, #ff6b6b);
     transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-soft-hover);
 }
 
 .playlist-item__cover {

@@ -5,7 +5,7 @@ import Separator from '../Separator';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 // Tab icons
-import presentationIcon from '../../assets/images/CardImages/aboutMe.svg';
+import presentationIcon from '../../assets/svg/ghost-svgrepo-com.svg';
 import toolsIcon from '../../assets/images/CardImages/tool.png';
 import appsIcon from '../../assets/images/CardImages/app.png';
 import inventoryIcon from '../../assets/images/CardImages/inventory.png';
@@ -317,7 +317,8 @@ function AboutSelector({ onNavigate }) {
           onClick={() => handleTabClick(tab.id)}
           title={t(tab.labelKey)}
           >
-            <img src={tab.icon} alt={t(tab.labelKey)} className="tab-icon" />
+            <img src={tab.icon} alt="" className="tab-icon" />
+            <span className="tab-label">{t(tab.labelKey)}</span>
           </button>
         ))}
 

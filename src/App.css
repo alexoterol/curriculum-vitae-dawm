@@ -1,19 +1,41 @@
 /* GLOBALS */
 :root {
-    /* Colores personalizados */
-    --color-bg: #2A2337; /* Midnight Violet */
-    --color-dark: #0D0D12; /* Onyx */
-    --color-fg: #EAEAEA; /* Alabaster Grey */
-    --color-accent: #E9B872; /* Sunlit Clay */
-    --color-border: #7D7D8E; /* Rosy Granite */
-    --color-warning: #A14591; /* Gris con matices rojos */
+    /* Cozy pastel palette */
+    --color-bg: #FBF1E1; /* Warm Cream */
+    --color-dark: #FFFBF3; /* Soft Parchment - card/surface bg */
+    --color-fg: #4A3B31; /* Espresso - high-contrast text */
+    --color-accent: #D98552; /* Soft Terracotta - primary accent */
+    --color-border: #E4D3B8; /* Warm Sand - borders */
+    --color-warning: #C1584A; /* Muted Brick - warnings/errors */
 
     /* Colores adicionales recomendados */
-    --color-bg-secondary: #7D7D8E; /* Rosy Granite - Fondo secundario */
-    --color-border-light: #EAEAEA; /* Alabaster Grey - Borde ligero */
-    --color-hover: #E9B872; /* Sunlit Clay - Hover de botones y enlaces */
-    --color-active: #2A2337; /* Midnight Violet - Fondo de elementos activos */
-    
+    --color-bg-secondary: #F3E4CC; /* Sandstone - fondo secundario */
+    --color-border-light: #EFE2C9; /* Sand - borde ligero */
+    --color-hover: #C97B4A; /* Terracotta oscuro - hover de botones y enlaces */
+    --color-active: #F3E4CC; /* Sandstone - fondo de elementos activos */
+
+    /* Extended cozy accents */
+    --color-sage: #8BA888; /* Muted Sage Green */
+    --color-rose: #D99A9E; /* Dusty Rose */
+    --color-slate: #7A6A5A; /* Warm Slate - secondary text */
+
+    --color-text: var(--color-fg);
+    --color-text-secondary: var(--color-slate);
+
+    /* Typography */
+    --font-main: 'Fraunces', Georgia, serif; /* warm serif headings */
+    --font-mono: 'Space Mono', 'Courier New', monospace; /* cozy retro UI/mono */
+    --font-body: 'Nunito Sans', 'Segoe UI', sans-serif; /* readable body */
+    --font-pixel: 'Press Start 2P', var(--font-mono); /* playground pixel-art accent */
+    --mono-font: var(--font-main);
+
+    /* Shape & depth */
+    --radius-s: 8px;
+    --radius-m: 14px;
+    --radius-l: 22px;
+    --shadow-soft: 0 6px 20px rgba(74, 59, 49, 0.10);
+    --shadow-soft-hover: 0 10px 26px rgba(74, 59, 49, 0.16);
+
     /* Espaciado */
     --spacing: clamp(1.5rem, 2vw, 5rem);
     --padding-s: 0.5rem;
@@ -44,7 +66,7 @@
     color: var(--color-fg);
     margin: 0;
     padding: 0;
-    transition: 0.1s;
+    transition: 0.2s ease;
 }
 html{
     min-height: 100vh;
@@ -56,11 +78,11 @@ main {
 
 body {
     color: var(--color-fg);
-    background: linear-gradient(var(--color-bg), var(--color-dark)) fixed;
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%) fixed;
     background-color: var(--color-bg);
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: fantasy;
+    font-family: var(--font-body);
 }
 
 .frame{
@@ -99,6 +121,8 @@ button {
     cursor: pointer;
     background: none;
     border: none;
+    font-family: inherit;
+    border-radius: var(--radius-s);
 }
 
 select {

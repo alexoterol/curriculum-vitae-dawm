@@ -14,7 +14,9 @@
   },
   "mainContent": {
     "title": "Alexis' Background",
-    "slowText": "IT IS A SL_________OW TYPE OF ART"
+    "slowText": "IT IS A SL_________OW TYPE OF ART",
+    "currentlyInto": "Currently obsessed with",
+    "explore": "Explore"
   },
   "cards": {
     "aboutMe": "About Me",
@@ -30,7 +32,8 @@
     "projects": "Projects",
     "contact": "Contact",
     "games": "Games",
-    "music": "Music"
+    "music": "Music",
+    "playground": "Playground"
   },
   "aboutMe": {
     "title": "About me",
@@ -112,5 +115,56 @@
         "linkText": "Alex 🌱"
       }
     ]
+  },
+  "playground": {
+    "title": "Playground",
+    "intro": "A cozy corner for the little things I build just because I want to. Grab a mug, poke around — everything here is meant to be played with.",
+    "folderView": {
+      "title": "My Apps",
+      "subtitle": "Downloadable desktop & game builds — browse the folder like you're on my desktop.",
+      "windowTitle": "alex ▸ playground ▸ apps",
+      "download": "Download",
+      "viewSource": "View Source"
+    },
+    "arcade": {
+      "title": "Web Arcade",
+      "subtitle": "Small browser games and toys, ready to play — no download needed.",
+      "playLive": "Play Live",
+      "source": "Source",
+      "back": "◂ Back to Arcade"
+    },
+    "apps": [
+      {
+        "name": "Pixel Garden",
+        "description": "A tiny idle game about growing a garden one pixel at a time. Started as a weekend experiment, never really stopped.",
+        "platform": "Windows / Linux",
+        "version": "v1.2.0",
+        "size": "24 MB"
+      },
+      {
+        "name": "Terminal Tamagotchi",
+        "description": "A virtual pet that lives in your terminal and judges your commit messages.",
+        "platform": "Windows / macOS / Linux",
+        "version": "v0.9.3",
+        "size": "6 MB"
+      },
+      {
+        "name": "Cozy Clock",
+        "description": "A desktop widget that turns your system clock into a slowly changing watercolor sky.",
+        "platform": "Windows",
+        "version": "v1.0.1",
+        "size": "11 MB"
+      }
+    ],
+    "games": {
+      "snake": {
+        "name": "Snake",
+        "description": "The classic wall-and-tail dodger, reskinned in a warmer palette. Eat, grow, try not to bite yourself."
+      },
+      "sudoku": {
+        "name": "Sudoku",
+        "description": "A quiet little number puzzle for when you want to think about something that isn't work. Three difficulties, zero pressure."
+      }
+    }
   }
 }

@@ -14,7 +14,9 @@
   },
   "mainContent": {
     "title": "La trayectoria de Alexis",
-    "slowText": "ES UN TIPO DE A_____RTE LENTO"
+    "slowText": "ES UN TIPO DE A_____RTE LENTO",
+    "currentlyInto": "Actualmente obsesionado con",
+    "explore": "Explorar"
   },
   "cards": {
     "aboutMe": "Sobre mí",
@@ -30,7 +32,8 @@
     "projects": "Proyectos",
     "contact": "Contacto",
     "games": "Juegos",
-    "music": "Musicas"
+    "music": "Musicas",
+    "playground": "Playground"
   },
   "aboutMe": {
     "title": "Sobre mí",
@@ -112,5 +115,56 @@
         "linkText": "Alex 🌱"
       }
     ]
+  },
+  "playground": {
+    "title": "Playground",
+    "intro": "Un rincón acogedor para las cositas que hago solo porque quiero. Toma un café y explora — todo aquí está hecho para jugar.",
+    "folderView": {
+      "title": "Mis Apps",
+      "subtitle": "Builds descargables de escritorio y juegos — navega la carpeta como si estuvieras en mi escritorio.",
+      "windowTitle": "alex ▸ playground ▸ apps",
+      "download": "Descargar",
+      "viewSource": "Ver Código"
+    },
+    "arcade": {
+      "title": "Arcade Web",
+      "subtitle": "Juegos y juguetes de navegador, listos para jugar — sin descargas.",
+      "playLive": "Jugar",
+      "source": "Código",
+      "back": "◂ Volver al Arcade"
+    },
+    "apps": [
+      {
+        "name": "Pixel Garden",
+        "description": "Un pequeño idle game sobre cultivar un jardín, un pixel a la vez. Empezó como un experimento de fin de semana y nunca paró.",
+        "platform": "Windows / Linux",
+        "version": "v1.2.0",
+        "size": "24 MB"
+      },
+      {
+        "name": "Terminal Tamagotchi",
+        "description": "Una mascota virtual que vive en tu terminal y juzga tus mensajes de commit.",
+        "platform": "Windows / macOS / Linux",
+        "version": "v0.9.3",
+        "size": "6 MB"
+      },
+      {
+        "name": "Cozy Clock",
+        "description": "Un widget de escritorio que convierte el reloj de tu sistema en un cielo de acuarela que cambia lentamente.",
+        "platform": "Windows",
+        "version": "v1.0.1",
+        "size": "11 MB"
+      }
+    ],
+    "games": {
+      "snake": {
+        "name": "Snake",
+        "description": "El clásico esquiva-paredes-y-cola, con una paleta más cálida. Come, crece, intenta no morderte."
+      },
+      "sudoku": {
+        "name": "Sudoku",
+        "description": "Un pequeño rompecabezas de números para cuando quieres pensar en algo que no sea trabajo. Tres dificultades, cero presión."
+      }
+    }
   }
 }

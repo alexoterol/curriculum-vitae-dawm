@@ -1,0 +1,134 @@
+.sudoku-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-m, 1rem);
+}
+
+.sudoku-game__hud {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(92vw, 420px);
+    gap: 0.5rem;
+}
+
+.sudoku-game__difficulty {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.sudoku-game__diff-btn,
+.sudoku-game__reset {
+    font-family: var(--font-pixel);
+    font-size: 0.55rem;
+    padding: 0.45rem 0.5rem;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 2px 2px 0 var(--color-fg);
+    color: var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.sudoku-game__diff-btn--active {
+    background-color: var(--color-rose);
+}
+
+.sudoku-game__diff-btn:hover,
+.sudoku-game__diff-btn:active,
+.sudoku-game__reset:hover,
+.sudoku-game__reset:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.sudoku-game__board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    width: min(92vw, 420px);
+    aspect-ratio: 1;
+    background-color: var(--color-fg);
+    border: 3px solid var(--color-fg);
+    gap: 1px;
+}
+
+.sudoku-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg);
+    font-family: var(--font-mono, 'Courier New', monospace);
+    font-size: clamp(0.8rem, 3.5vw, 1.1rem);
+    font-weight: bold;
+    color: var(--color-accent);
+    border-radius: 0;
+}
+
+.sudoku-cell--given {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-fg);
+}
+
+.sudoku-cell--border-top {
+    border-top: 3px solid var(--color-fg);
+}
+
+.sudoku-cell--border-left {
+    border-left: 3px solid var(--color-fg);
+}
+
+.sudoku-cell--selected {
+    background-color: color-mix(in srgb, var(--color-rose) 45%, var(--color-bg));
+}
+
+.sudoku-cell--conflict {
+    background-color: color-mix(in srgb, var(--color-warning) 35%, var(--color-bg));
+    color: var(--color-warning);
+}
+
+.sudoku-cell--given.sudoku-cell--conflict {
+    color: var(--color-warning);
+}
+
+.sudoku-game__numpad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.4rem;
+    width: min(92vw, 420px);
+}
+
+.sudoku-numpad__btn {
+    font-family: var(--font-pixel);
+    font-size: 0.75rem;
+    padding: 0.5rem 0;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 2px 2px 0 var(--color-fg);
+    color: var(--color-accent);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.sudoku-numpad__btn--clear {
+    color: var(--color-warning);
+}
+
+.sudoku-numpad__btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.sudoku-numpad__btn:not(:disabled):hover,
+.sudoku-numpad__btn:not(:disabled):active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.sudoku-game__win {
+    font-family: var(--font-pixel);
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+    background-color: var(--color-sage);
+    border: 2px solid var(--color-fg);
+    box-shadow: 3px 3px 0 var(--color-fg);
+    color: var(--color-dark);
+}
