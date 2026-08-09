@@ -37,10 +37,15 @@
     opacity: 0;
     padding: var(--padding-s);
     transition: opacity 0s;
+    /* Closed content still sits in the layout (for the opacity transition) and can
+       overflow its collapsed container box, so it must not be clickable while hidden
+       — otherwise its invisible links can intercept taps meant for content underneath. */
+    pointer-events: none;
 }
 
 .container--open .container__content {
     opacity: 1;
+    pointer-events: all;
     transition: opacity 0.2s;
 }
 

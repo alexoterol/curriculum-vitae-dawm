@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--padding-s, 0.5rem);
     background-color: var(--color-accent, #c77dff);
     padding: var(--padding-xs, 0.3rem) var(--padding-s, 0.5rem);
 }
@@ -21,10 +22,15 @@
     color: var(--color-bg, #1a1a1a);
     font-weight: bold;
     letter-spacing: 0.5px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .window-titlebar__controls {
     display: flex;
+    flex-shrink: 0;
     gap: var(--padding-xs, 0.3rem);
 }
 

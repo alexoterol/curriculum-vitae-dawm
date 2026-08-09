@@ -24,23 +24,41 @@ import CSGOImg from '../../assets/images/games/csgo.webp';
 import PortalImg from '../../assets/images/games/portal_logo.webp';
 import GTAVImg from '../../assets/images/games/gta_v.webp';
 import SkyrimImg from '../../assets/images/games/skyrim.webp';
+import HollowKnightImg from '../../assets/images/games/hollow_knight.webp';
+import SilksongImg from '../../assets/images/games/silksong.webp';
+import GOWImg from '../../assets/images/games/GOW.webp';
+import GOW4Img from '../../assets/images/games/GOW4.webp';
 
 function Games() {
     const games = [
         // Tier S
-        { name: "Dark Souls", img: DarkSoulsImg, tier: "s" },
-        { name: "Portal 2", img: Portal2Img, tier: "s" },
-        { name: "RDR 2", img: RDR2Img, tier: "s" },
+        { name: "GOW Saga", img: GOWImg, tier: "s" },
         { name: "GTA SA", img: GTASAImg, tier: "s" },
         { name: "Minecraft", img: MinecraftImg, tier: "s" },
+        { name: "Hollow Knight", img: HollowKnightImg, tier: "s" },
         
-        // Tier A
+        
+        // Tier A`
+        { name: "GOW 4", img: GOW4Img, tier: "a" },
+        { name: "Dark Souls", img: DarkSoulsImg, tier: "a" },
         { name: "CSGO", img: CSGOImg, tier: "a" },
-        { name: "Portal", img: PortalImg, tier: "a" },
+        { name: "Silksong", img: SilksongImg, tier: "a" },
         
         // Tier B
+        { name: "Portal 2", img: Portal2Img, tier: "b" },
         { name: "GTA V", img: GTAVImg, tier: "b" },
-        { name: "Skyrim", img: SkyrimImg, tier: "b" },
+        
+        // Tier C
+        { name: "Portal", img: PortalImg, tier: "c" },
+        
+        // Tier D
+        { name: "Persona 5 Royal", img: Persona5RoyalImg, tier: "d" },
+        { name: "OneShot", img: OneshotImg, tier: "d" },
+        { name: "GTA IV", img: GTAIVImg, tier: "d" },
+        
+        // Tier Wish
+        { name: "Skyrim", img: SkyrimImg, tier: "w" },
+        { name: "RDR 2", img: RDR2Img, tier: "w" },
     ];
 
     return (

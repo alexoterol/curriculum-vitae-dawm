@@ -26,6 +26,12 @@
     font-size: 0.7rem;
 }
 
+@media screen and (max-width: 480px) {
+    .window-container--pixel .window-titlebar__title {
+        font-size: 0.5rem;
+    }
+}
+
 .folder-view {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);

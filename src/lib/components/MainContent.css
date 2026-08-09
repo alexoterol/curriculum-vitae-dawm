@@ -4,8 +4,10 @@
 
 }
 .main-content{
-    
     gap: var(--padding-s);
+    /* clears the fixed sidebar toggle button pinned to the bottom-right corner,
+       which otherwise overlaps the last row of nav cards */
+    padding-bottom: 9rem;
 }
 
 .main-title {
@@ -88,7 +90,7 @@
 .slow-separator {
     display: flex;
     justify-content: center;
-    padding: 1.5rem 0 1rem 0;
+    padding: 1.5rem var(--padding-m, 1rem) 1rem;
     margin: 1.75rem 0 1rem 0;
     align-items: center;
     margin-top: var(--padding-x);
@@ -96,16 +98,24 @@
     border: var(--border-width, 2px) solid var(--color-border);
     border-radius: var(--radius-m, 14px);
     box-shadow: var(--shadow-soft);
+    overflow-x: auto;
 }
 
 .slow-text {
     font-family: "vergilia", sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1rem, 4.5vw, 2rem);
     font-weight: bold;
     color: var(--color-warning);
     letter-spacing: 2px;
     position: relative;
     white-space: nowrap;
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .slow-text {
+        letter-spacing: 1px;
+    }
 }
 
 

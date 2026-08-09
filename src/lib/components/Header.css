@@ -87,3 +87,35 @@ header {
 .lang-selector > option {
   color: var(--color-dark)
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 480px) {
+  header {
+    padding: var(--padding-s) var(--padding-m);
+    gap: var(--padding-s);
+  }
+
+  .titlebar,
+  .social {
+    gap: 0.5rem;
+  }
+
+  .titlebar-image {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .social-link {
+    height: 1.3em;
+    width: 1.6em;
+  }
+
+  .lang-selector {
+    padding: 0.35rem;
+    font-size: 0.75rem;
+  }
+}

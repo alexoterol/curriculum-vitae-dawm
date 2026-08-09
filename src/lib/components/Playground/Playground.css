@@ -104,7 +104,33 @@
 }
 
 /* RESPONSIVE */
+@media screen and (max-width: 728px) {
+    .playground-section {
+        padding: var(--padding-m, 1rem);
+    }
+
+    .playground-arcade-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media screen and (max-width: 480px) {
+    .playground-container {
+        gap: var(--padding-m, 1rem);
+    }
+
+    .playground-section {
+        padding: var(--padding-s, 0.75rem);
+    }
+
+    .playground-section__heading h2 {
+        font-size: 0.9rem;
+    }
+
+    .pixel-tag {
+        font-size: 0.5rem;
+    }
+
     .playground-divider__badge {
         font-size: 0.55rem;
         padding: 0.4rem 0.5rem;

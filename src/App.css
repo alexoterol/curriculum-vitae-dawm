@@ -48,8 +48,12 @@
     /* Medidas */
     --header-height: 4rem;
     --sidebar-width: 10rem;
+    --button-height: 3rem;
+    --button-width: 3rem;
+    --text-padding-h: 0.75rem;
+    --text-padding-v: 0.5rem;
 
-    --border-width: 0.15rem;     
+    --border-width: 0.15rem;
 }
 
 @font-face {
@@ -70,6 +74,7 @@
 }
 html{
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 main {
@@ -77,6 +82,7 @@ main {
 }
 
 body {
+    overflow-x: hidden;
     color: var(--color-fg);
     background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%) fixed;
     background-color: var(--color-bg);
@@ -93,8 +99,18 @@ body {
     width: 100dvw;
 
     pointer-events: none;
+    touch-action: none;
     transition: 0s;
     z-index: 999999999;
+}
+
+/* The CRT bezel is drawn for a widescreen monitor; on tall mobile
+   viewports it stretches/distorts and its thick border crowds the
+   fixed header + sidebar controls, so it steps aside on small screens. */
+@media screen and (max-width: 728px) {
+    .frame {
+        display: none;
+    }
 }
 
 a:hover {

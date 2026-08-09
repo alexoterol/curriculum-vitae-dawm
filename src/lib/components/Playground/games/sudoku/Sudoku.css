@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: min(92vw, 420px);
+    width: min(100%, 420px);
     gap: 0.5rem;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .sudoku-game__diff-btn,
-.sudoku-game__reset {
+.sudoku-game__new {
     font-family: var(--font-pixel);
     font-size: 0.55rem;
     padding: 0.45rem 0.5rem;
@@ -36,8 +36,8 @@
 
 .sudoku-game__diff-btn:hover,
 .sudoku-game__diff-btn:active,
-.sudoku-game__reset:hover,
-.sudoku-game__reset:active {
+.sudoku-game__new:hover,
+.sudoku-game__new:active {
     transform: translate(2px, 2px);
     box-shadow: 0 0 0 var(--color-fg);
 }
@@ -45,7 +45,7 @@
 .sudoku-game__board {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    width: min(92vw, 420px);
+    width: min(100%, 420px);
     aspect-ratio: 1;
     background-color: var(--color-fg);
     border: 3px solid var(--color-fg);
@@ -94,7 +94,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 0.4rem;
-    width: min(92vw, 420px);
+    width: min(100%, 420px);
 }
 
 .sudoku-numpad__btn {

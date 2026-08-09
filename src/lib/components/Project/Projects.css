@@ -1,6 +1,7 @@
 
 .projects-list {
     padding-top: var(--padding-m);
+    padding-bottom: 5rem;
     display: flex;
     flex-direction: column;
     gap: var(--padding-l, 1.5rem);

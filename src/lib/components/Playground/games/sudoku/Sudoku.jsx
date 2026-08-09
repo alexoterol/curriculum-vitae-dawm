@@ -1,7 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import './Sudoku.css';
 
-const EASY_GRID = [
+// One verified-valid solved grid. Every new game is derived from it via
+// randomized, validity-preserving symmetries (row/column/band/stack
+// permutations, an optional transpose, and digit relabeling), so each
+// play — including every page load — gets a fresh, still-valid puzzle
+// instead of one of a few fixed boards.
+const BASE_SOLUTION = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9],
     [4, 5, 6, 7, 8, 9, 1, 2, 3],
     [7, 8, 9, 1, 2, 3, 4, 5, 6],
@@ -13,57 +18,65 @@ const EASY_GRID = [
     [9, 1, 2, 3, 4, 5, 6, 7, 8],
 ];
 
-const MEDIUM_GRID = [
-    [1, 4, 7, 2, 5, 8, 3, 6, 9],
-    [2, 5, 8, 3, 6, 9, 4, 7, 1],
-    [3, 6, 9, 4, 7, 1, 5, 8, 2],
-    [4, 7, 1, 5, 8, 2, 6, 9, 3],
-    [5, 8, 2, 6, 9, 3, 7, 1, 4],
-    [6, 9, 3, 7, 1, 4, 8, 2, 5],
-    [7, 1, 4, 8, 2, 5, 9, 3, 6],
-    [8, 2, 5, 9, 3, 6, 1, 4, 7],
-    [9, 3, 6, 1, 4, 7, 2, 5, 8],
+const DIFFICULTIES = [
+    { id: 'easy', clueRange: [42, 48] },
+    { id: 'medium', clueRange: [32, 38] },
+    { id: 'hard', clueRange: [24, 30] },
 ];
 
-const HARD_GRID = [
-    [2, 3, 4, 5, 6, 7, 8, 9, 1],
-    [5, 6, 7, 8, 9, 1, 2, 3, 4],
-    [8, 9, 1, 2, 3, 4, 5, 6, 7],
-    [3, 4, 5, 6, 7, 8, 9, 1, 2],
-    [6, 7, 8, 9, 1, 2, 3, 4, 5],
-    [9, 1, 2, 3, 4, 5, 6, 7, 8],
-    [4, 5, 6, 7, 8, 9, 1, 2, 3],
-    [7, 8, 9, 1, 2, 3, 4, 5, 6],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9],
-];
-
-const PUZZLES = [
-    { id: 'easy', solution: EASY_GRID, seed: 7, clues: 42 },
-    { id: 'medium', solution: MEDIUM_GRID, seed: 21, clues: 34 },
-    { id: 'hard', solution: HARD_GRID, seed: 99, clues: 27 },
-];
-
-function seededRandom(seed) {
-    let s = seed % 2147483647;
-    if (s <= 0) s += 2147483646;
-    return () => {
-        s = (s * 16807) % 2147483647;
-        return (s - 1) / 2147483646;
-    };
+function shuffle(list) {
+    const arr = [...list];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
 }
 
-function buildGivenBoard(solution, seed, clueCount) {
+function randomizeSolution(base) {
+    let grid = base.map((row) => [...row]);
+
+    // shuffle the 3 rows within each band, then shuffle the band order itself
+    const bandOrder = shuffle([0, 1, 2]);
+    const rowsPerBand = [shuffle([0, 1, 2]), shuffle([0, 1, 2]), shuffle([0, 1, 2])];
+    grid = bandOrder.flatMap((band) => rowsPerBand[band].map((r) => grid[band * 3 + r]));
+
+    // same for columns within each stack, then the stack order
+    const stackOrder = shuffle([0, 1, 2]);
+    const colsPerStack = [shuffle([0, 1, 2]), shuffle([0, 1, 2]), shuffle([0, 1, 2])];
+    const colOrder = stackOrder.flatMap((stack) => colsPerStack[stack].map((c) => stack * 3 + c));
+    grid = grid.map((row) => colOrder.map((c) => row[c]));
+
+    if (Math.random() < 0.5) {
+        grid = grid[0].map((_, c) => grid.map((row) => row[c]));
+    }
+
+    const digitMap = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    grid = grid.map((row) => row.map((v) => digitMap[v - 1]));
+
+    return grid;
+}
+
+function buildGivenBoard(solution, clueCount) {
     const cells = [];
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) cells.push([r, c]);
     }
-    const rand = seededRandom(seed);
-    for (let i = cells.length - 1; i > 0; i--) {
-        const j = Math.floor(rand() * (i + 1));
-        [cells[i], cells[j]] = [cells[j], cells[i]];
-    }
-    const clueSet = new Set(cells.slice(0, clueCount).map(([r, c]) => `${r},${c}`));
+    const clueSet = new Set(shuffle(cells).slice(0, clueCount).map(([r, c]) => `${r},${c}`));
     return solution.map((row, r) => row.map((val, c) => (clueSet.has(`${r},${c}`) ? val : 0)));
+}
+
+function generateGame(difficultyId) {
+    const difficulty =
+        DIFFICULTIES.find((d) => d.id === difficultyId) ||
+        DIFFICULTIES[Math.floor(Math.random() * DIFFICULTIES.length)];
+    const solution = randomizeSolution(BASE_SOLUTION);
+    const [min, max] = difficulty.clueRange;
+    const clueCount = min + Math.floor(Math.random() * (max - min + 1));
+    return {
+        difficultyId: difficulty.id,
+        givenBoard: buildGivenBoard(solution, clueCount),
+    };
 }
 
 function getConflicts(board) {
@@ -106,25 +119,14 @@ function cloneBoard(board) {
 }
 
 function Sudoku() {
-    const [puzzleIndex, setPuzzleIndex] = useState(0);
-    const puzzle = PUZZLES[puzzleIndex];
-    const givenBoard = useMemo(
-        () => buildGivenBoard(puzzle.solution, puzzle.seed, puzzle.clues),
-        [puzzle]
-    );
-    const [board, setBoard] = useState(() => cloneBoard(givenBoard));
+    const [game, setGame] = useState(() => generateGame());
+    const [board, setBoard] = useState(() => cloneBoard(game.givenBoard));
     const [selected, setSelected] = useState(null);
 
-    const changePuzzle = (index) => {
-        const nextPuzzle = PUZZLES[index];
-        const nextGiven = buildGivenBoard(nextPuzzle.solution, nextPuzzle.seed, nextPuzzle.clues);
-        setPuzzleIndex(index);
-        setBoard(cloneBoard(nextGiven));
-        setSelected(null);
-    };
-
-    const resetBoard = () => {
-        setBoard(cloneBoard(givenBoard));
+    const startNewGame = (difficultyId) => {
+        const nextGame = generateGame(difficultyId);
+        setGame(nextGame);
+        setBoard(cloneBoard(nextGame.givenBoard));
         setSelected(null);
     };
 
@@ -133,7 +135,7 @@ function Sudoku() {
     const isSolved = isComplete && conflicts.size === 0;
 
     const setCellValue = (r, c, value) => {
-        if (givenBoard[r][c] !== 0) return;
+        if (game.givenBoard[r][c] !== 0) return;
         setBoard((prev) => {
             const next = cloneBoard(prev);
             next[r][c] = value;
@@ -167,21 +169,21 @@ function Sudoku() {
         <div className="sudoku-game">
             <div className="sudoku-game__hud">
                 <div className="sudoku-game__difficulty">
-                    {PUZZLES.map((p, index) => (
+                    {DIFFICULTIES.map((d) => (
                         <button
-                            key={p.id}
+                            key={d.id}
                             type="button"
                             className={`sudoku-game__diff-btn ${
-                                index === puzzleIndex ? 'sudoku-game__diff-btn--active' : ''
+                                d.id === game.difficultyId ? 'sudoku-game__diff-btn--active' : ''
                             }`}
-                            onClick={() => changePuzzle(index)}
+                            onClick={() => startNewGame(d.id)}
                         >
-                            {p.id.toUpperCase()}
+                            {d.id.toUpperCase()}
                         </button>
                     ))}
                 </div>
-                <button type="button" className="sudoku-game__reset" onClick={resetBoard}>
-                    RESET
+                <button type="button" className="sudoku-game__new" onClick={() => startNewGame()}>
+                    🎲 NEW
                 </button>
             </div>
 
@@ -189,7 +191,7 @@ function Sudoku() {
                 {board.map((row, r) =>
                     row.map((val, c) => {
                         const key = `${r}-${c}`;
-                        const isGiven = givenBoard[r][c] !== 0;
+                        const isGiven = game.givenBoard[r][c] !== 0;
                         const isSelected = selected && selected.r === r && selected.c === c;
                         const hasConflict = conflicts.has(`${r},${c}`);
                         return (

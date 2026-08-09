@@ -10,7 +10,7 @@
 .space-aesthetic-image {
     max-height: 50px;
     height: auto;
-    opacity: 0.8; 
+    opacity: 0.8;
     transition: opacity 0.3s ease;
 }
 
@@ -18,8 +18,13 @@
     opacity: 1;
 }
 
-@media screen and (max-width: 728px) {
-    .space-aesthetic{
-        display: none;
+@media screen and (max-width: 480px) {
+    .space-aesthetic {
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .space-aesthetic-image {
+        max-height: 36px;
     }
 }

@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: auto;
+    padding-bottom: 5rem;
 }
 
 .contact-methods-grid {
