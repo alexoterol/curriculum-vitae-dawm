@@ -45,6 +45,7 @@
 .sudoku-game__board {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
     width: min(100%, 420px);
     aspect-ratio: 1;
     background-color: var(--color-fg);

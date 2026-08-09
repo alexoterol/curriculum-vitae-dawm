@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './Snake.css';
 
 const GRID_SIZE = 15;
-const TICK_MS = 140;
+const TICK_MS = 190;
 const HIGH_SCORE_KEY = 'playground-snake-highscore';
 
 const INITIAL_SNAKE = [
