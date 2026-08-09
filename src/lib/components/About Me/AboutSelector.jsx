@@ -42,11 +42,13 @@ import franceFlagImg from '../../assets/images/tools/france_flag.png';
 import italyFlagImg from '../../assets/images/tools/italy_flag.webp';
 
 // Applications
-import vscodiumImg from '../../assets/images/applications/vscodium.webp';
+import vscodeImg from '../../assets/images/applications/vscode.webp';
 import neovimImg from '../../assets/images/applications/neovim.webp';
 import audaciousImg from '../../assets/images/applications/audacious.png';
 import obsidianImg from '../../assets/images/applications/obsidian.webp';
 import librewolfImg from '../../assets/images/applications/librewolf.webp';
+import notionImg from '../../assets/images/applications/notion.webp';
+import ankiImg from '../../assets/images/applications/anki.webp';
 
 // Inventory
 import nothingA3Img from '../../assets/images/inventory/nothing_a3.webp';
@@ -189,9 +191,9 @@ function AboutSelector({ onNavigate }) {
             <div className="apps-grid">
                 <div className="app-entry">
                     <div className="app-icon">
-                        <img src={vscodiumImg} alt="VSCodium" />
+                        <img src={vscodeImg} alt="VS Code" />
                     </div>
-                    <span className="app-name">VSCodium</span>
+                    <span className="app-name">VS Code</span>
                 </div>
 
                 <div className="app-entry">
@@ -203,9 +205,16 @@ function AboutSelector({ onNavigate }) {
 
                 <div className="app-entry">
                     <div className="app-icon">
-                        <img src={audaciousImg} alt="Audacious" />
+                        <img src={ankiImg} alt="Anki" />
                     </div>
-                    <span className="app-name">Audacious</span>
+                    <span className="app-name">Anki</span>
+                </div>
+
+                <div className="app-entry">
+                    <div className="app-icon">
+                        <img src={notionImg} alt="Notion" />
+                    </div>
+                    <span className="app-name">Notion</span>
                 </div>
 
                 <div className="app-entry">
@@ -214,6 +223,14 @@ function AboutSelector({ onNavigate }) {
                     </div>
                     <span className="app-name">Obsidian</span>
                 </div>
+                
+                <div className="app-entry">
+                    <div className="app-icon">
+                        <img src={audaciousImg} alt="Audacious" />
+                    </div>
+                    <span className="app-name">Audacious</span>
+                </div>
+
                 <div className="app-entry">
                     <div className="app-icon">
                         <img src={librewolfImg} alt="LibreWolf" />

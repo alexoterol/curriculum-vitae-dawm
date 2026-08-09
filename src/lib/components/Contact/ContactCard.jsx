@@ -2,21 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ContactCard.css';
 
-import signalImg from '/src/lib/assets/images/contact/copland.webp';
-import discordImg from '/src/lib/assets/images/contact/copland.webp';
-import twitterImg from '/src/lib/assets/images/contact/copland.webp';
-import mailImg from '/src/lib/assets/images/contact/copland.webp';
+import discordImg from '/src/lib/assets/images/contact/discord.webp';
+import LinkedinImg from '/src/lib/assets/images/contact/linkedin.webp';
+import mailImg from '/src/lib/assets/images/contact/email.webp';
 import starImg from '/src/lib/assets/images/star.gif';
 
 function ContactCard({ socialApp, name, linkText, link }) {
+
     const getIcon = () => {
         switch (socialApp) {
             case 'Discord':
                 return discordImg;
-            case 'Signal':
-                return signalImg;
-            case 'Twitter':
-                return twitterImg;
+            case 'LinkedIn':
+                return LinkedinImg;
             case 'Mail':
                 return mailImg;
             default:
@@ -41,7 +39,7 @@ function ContactCard({ socialApp, name, linkText, link }) {
 }
 
 ContactCard.propTypes = {
-    socialApp: PropTypes.oneOf(['Discord', 'Signal', 'Twitter', 'Mail']).isRequired,
+    socialApp: PropTypes.oneOf(['Discord', 'Signal', 'LinkedIn', 'Mail']).isRequired,
     name: PropTypes.string.isRequired,
     linkText: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,

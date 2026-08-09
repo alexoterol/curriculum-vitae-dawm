@@ -110,9 +110,9 @@
         "linkText": "Discock"
       },
       {
-        "socialApp": "Twitter",
-        "name": "Twitter",
-        "linkText": "Alex 🌱"
+        "socialApp": "LinkedIn",
+        "name": "LinkedIn",
+        "linkText": "Alex Otero"
       }
     ]
   },
@@ -135,25 +135,11 @@
     },
     "apps": [
       {
-        "name": "Pixel Garden",
-        "description": "A tiny idle game about growing a garden one pixel at a time. Started as a weekend experiment, never really stopped.",
+        "name": "Warrior's Adventure",
+        "description": "A 2D adventure game about a warrior with a tragic ending.",
         "platform": "Windows / Linux",
-        "version": "v1.2.0",
-        "size": "24 MB"
-      },
-      {
-        "name": "Terminal Tamagotchi",
-        "description": "A virtual pet that lives in your terminal and judges your commit messages.",
-        "platform": "Windows / macOS / Linux",
-        "version": "v0.9.3",
-        "size": "6 MB"
-      },
-      {
-        "name": "Cozy Clock",
-        "description": "A desktop widget that turns your system clock into a slowly changing watercolor sky.",
-        "platform": "Windows",
-        "version": "v1.0.1",
-        "size": "11 MB"
+        "version": "v1.0.0",
+        "size": "64 MB"
       }
     ],
     "games": {

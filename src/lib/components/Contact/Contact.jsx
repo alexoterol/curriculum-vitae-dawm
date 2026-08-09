@@ -12,15 +12,15 @@ function Contact() {
     const contacts = [
         {
             ...contactMethods[0],
-            link: 'mailto:example@example.com'
+            link: 'mailto:adotero@espol.edu.ec'
         },
         {
             ...contactMethods[1],
-            link: 'https://discord.gg/...'
+            link: 'https://discord.gg/772M4DuCCK'
         },
         {
             ...contactMethods[2],
-            link: 'https://twitter.com/'
+            link: 'https://www.linkedin.com/in/alex-otero-limones-768957267/'
         }
     ];
 

@@ -8,9 +8,7 @@ import { PLAYGROUND_GAMES } from './games/registry';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const APPS_META = [
-    { tags: ['Godot', 'C#'], downloadUrl: '#', sourceUrl: 'https://github.com/' },
-    { tags: ['Rust', 'CLI'], downloadUrl: '#', sourceUrl: 'https://github.com/' },
-    { tags: ['Electron', 'JS'], downloadUrl: '#' },
+    { tags: ['Godot', 'GDScript'], downloadUrl: 'https://github.com/alexoterol/godot-practice', sourceUrl: 'https://github.com/alexoterol/godot-practice' },
 ];
 
 function Playground() {
