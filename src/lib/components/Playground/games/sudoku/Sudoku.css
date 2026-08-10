@@ -91,6 +91,23 @@
     color: var(--color-warning);
 }
 
+.sudoku-cell__notes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+}
+
+.sudoku-cell__note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.4rem, 1.6vw, 0.55rem);
+    font-weight: normal;
+    color: var(--color-fg);
+    opacity: 0.7;
+}
+
 .sudoku-game__numpad {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -111,6 +128,10 @@
 
 .sudoku-numpad__btn--clear {
     color: var(--color-warning);
+}
+
+.sudoku-numpad__btn--active {
+    background-color: var(--color-rose);
 }
 
 .sudoku-numpad__btn:disabled {

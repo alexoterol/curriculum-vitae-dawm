@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import './Sudoku.css';
 
 // One verified-valid solved grid. Every new game is derived from it via
@@ -121,18 +121,38 @@ function cloneBoard(board) {
 function Sudoku() {
     const [game, setGame] = useState(() => generateGame());
     const [board, setBoard] = useState(() => cloneBoard(game.givenBoard));
+    const [notes, setNotes] = useState({});
+    const [notesMode, setNotesMode] = useState(false);
     const [selected, setSelected] = useState(null);
+    const cellRefs = useRef({});
+
+    // keeps DOM focus in sync with `selected` so a digit typed right after an
+    // arrow-key move lands on the newly selected cell, not the one focus never left
+    useEffect(() => {
+        if (selected) cellRefs.current[`${selected.r},${selected.c}`]?.focus();
+    }, [selected]);
 
     const startNewGame = (difficultyId) => {
         const nextGame = generateGame(difficultyId);
         setGame(nextGame);
         setBoard(cloneBoard(nextGame.givenBoard));
+        setNotes({});
         setSelected(null);
     };
 
     const conflicts = useMemo(() => getConflicts(board), [board]);
     const isComplete = board.every((row) => row.every((v) => v !== 0));
     const isSolved = isComplete && conflicts.size === 0;
+
+    const clearNotes = (r, c) => {
+        setNotes((prev) => {
+            const key = `${r},${c}`;
+            if (!prev[key]) return prev;
+            const next = { ...prev };
+            delete next[key];
+            return next;
+        });
+    };
 
     const setCellValue = (r, c, value) => {
         if (game.givenBoard[r][c] !== 0) return;
@@ -141,15 +161,32 @@ function Sudoku() {
             next[r][c] = value;
             return next;
         });
+        clearNotes(r, c);
+    };
+
+    const toggleNote = (r, c, value) => {
+        if (game.givenBoard[r][c] !== 0 || board[r][c] !== 0) return;
+        setNotes((prev) => {
+            const key = `${r},${c}`;
+            const current = new Set(prev[key] || []);
+            current.has(value) ? current.delete(value) : current.add(value);
+            const next = { ...prev };
+            if (current.size) next[key] = Array.from(current).sort();
+            else delete next[key];
+            return next;
+        });
     };
 
     const handleKeyDown = (e, r, c) => {
         if (e.key >= '1' && e.key <= '9') {
             e.preventDefault();
-            setCellValue(r, c, Number(e.key));
+            notesMode ? toggleNote(r, c, Number(e.key)) : setCellValue(r, c, Number(e.key));
         } else if (e.key === 'Backspace' || e.key === 'Delete' || e.key === '0') {
             e.preventDefault();
             setCellValue(r, c, 0);
+        } else if (e.key === 'n' || e.key === 'N') {
+            e.preventDefault();
+            setNotesMode((prev) => !prev);
         } else if (e.key === 'ArrowUp') {
             e.preventDefault();
             setSelected({ r: Math.max(0, r - 1), c });
@@ -190,13 +227,15 @@ function Sudoku() {
             <div className="sudoku-game__board">
                 {board.map((row, r) =>
                     row.map((val, c) => {
-                        const key = `${r}-${c}`;
+                        const key = `${r},${c}`;
                         const isGiven = game.givenBoard[r][c] !== 0;
                         const isSelected = selected && selected.r === r && selected.c === c;
-                        const hasConflict = conflicts.has(`${r},${c}`);
+                        const hasConflict = conflicts.has(key);
+                        const cellNotes = notes[key];
                         return (
                             <button
                                 key={key}
+                                ref={(el) => { cellRefs.current[key] = el; }}
                                 type="button"
                                 className={[
                                     'sudoku-cell',
@@ -209,7 +248,19 @@ function Sudoku() {
                                 onClick={() => setSelected({ r, c })}
                                 onKeyDown={(e) => handleKeyDown(e, r, c)}
                             >
-                                {val !== 0 ? val : ''}
+                                {val !== 0 ? (
+                                    val
+                                ) : cellNotes ? (
+                                    <span className="sudoku-cell__notes">
+                                        {Array.from({ length: 9 }, (_, i) => i + 1).map((n) => (
+                                            <span key={n} className="sudoku-cell__note">
+                                                {cellNotes.includes(n) ? n : ''}
+                                            </span>
+                                        ))}
+                                    </span>
+                                ) : (
+                                    ''
+                                )}
                             </button>
                         );
                     })
@@ -223,7 +274,12 @@ function Sudoku() {
                         type="button"
                         className="sudoku-numpad__btn"
                         disabled={!selected}
-                        onClick={() => selected && setCellValue(selected.r, selected.c, n)}
+                        onClick={() =>
+                            selected &&
+                            (notesMode
+                                ? toggleNote(selected.r, selected.c, n)
+                                : setCellValue(selected.r, selected.c, n))
+                        }
                     >
                         {n}
                     </button>
@@ -235,6 +291,16 @@ function Sudoku() {
                     onClick={() => selected && setCellValue(selected.r, selected.c, 0)}
                 >
                     ✕
+                </button>
+                <button
+                    type="button"
+                    className={`sudoku-numpad__btn sudoku-numpad__btn--notes ${
+                        notesMode ? 'sudoku-numpad__btn--active' : ''
+                    }`}
+                    onClick={() => setNotesMode((prev) => !prev)}
+                    title="Toggle notes (N)"
+                >
+                    ✎
                 </button>
             </div>
 
