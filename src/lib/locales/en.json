@@ -150,6 +150,14 @@
       "sudoku": {
         "name": "Sudoku",
         "description": "A quiet little number puzzle for when you want to think about something that isn't work. Three difficulties, zero pressure."
+      },
+      "2048": {
+        "name": "2048",
+        "description": "Slide, merge, repeat. Chase the 2048 tile without running out of room."
+      },
+      "minesweeper": {
+        "name": "Minesweeper",
+        "description": "Classic solo sweeping, or open a room and clear the board together with a friend in real time."
       }
     }
   }

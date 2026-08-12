@@ -150,6 +150,14 @@
       "sudoku": {
         "name": "Sudoku",
         "description": "Un pequeño rompecabezas de números para cuando quieres pensar en algo que no sea trabajo. Tres dificultades, cero presión."
+      },
+      "2048": {
+        "name": "2048",
+        "description": "Desliza, combina, repite. Persigue la ficha 2048 sin quedarte sin espacio."
+      },
+      "minesweeper": {
+        "name": "Buscaminas",
+        "description": "El clásico en solitario, o abre una sala y despeja el tablero en tiempo real con un amigo."
       }
     }
   }
