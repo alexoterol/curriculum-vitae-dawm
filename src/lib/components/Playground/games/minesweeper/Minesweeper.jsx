@@ -1,7 +1,19 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Peer from 'peerjs';
 import './Minesweeper.css';
-import { DIFFICULTIES, createGameState, reveal, toggleFlag, buildView, generateRoomCode } from './boardUtils';
+import { DIFFICULTIES, createGameState, reveal, toggleFlag, chordReveal, buildView, generateRoomCode } from './boardUtils';
+
+function applyAction(engine, kind, r, c) {
+    if (kind === 'flag') return toggleFlag(engine, r, c);
+    if (kind === 'chord') return chordReveal(engine, r, c);
+    return reveal(engine, r, c);
+}
+
+// Wider boards (e.g. Demon's 25 cols) get more room so cells don't shrink
+// below a usable tap size; narrower boards keep the original 420px cap.
+function boardWidth(cols) {
+    return `min(100%, ${Math.max(420, cols * 20)}px)`;
+}
 
 const CELL_ICON = { hidden: '', flag: '🚩', 'flag-mine': '🚩', mine: '💣', 'mine-hit': '💣' };
 
@@ -35,6 +47,11 @@ function Board({ view, flagMode, onCellAction, interactive }) {
     if (!view) return null;
     const handleClick = (r, c) => {
         if (!interactive || view.status === 'won' || view.status === 'lost') return;
+        const cell = view.grid[r][c];
+        if (!flagMode && typeof cell === 'number' && cell > 0) {
+            onCellAction(r, c, 'chord');
+            return;
+        }
         onCellAction(r, c, flagMode ? 'flag' : 'reveal');
     };
     const handleContextMenu = (e, r, c) => {
@@ -46,7 +63,12 @@ function Board({ view, flagMode, onCellAction, interactive }) {
     return (
         <div
             className="minesweeper-board"
-            style={{ gridTemplateColumns: `repeat(${view.size}, 1fr)` }}
+            style={{
+                gridTemplateColumns: `repeat(${view.cols}, 1fr)`,
+                gridTemplateRows: `repeat(${view.rows}, 1fr)`,
+                aspectRatio: `${view.cols} / ${view.rows}`,
+                width: boardWidth(view.cols),
+            }}
         >
             {view.grid.map((row, r) =>
                 row.map((cell, c) => {
@@ -76,7 +98,7 @@ function Board({ view, flagMode, onCellAction, interactive }) {
 
 function Hud({ view, flagMode, onToggleFlagMode, extra }) {
     return (
-        <div className="minesweeper-hud">
+        <div className="minesweeper-hud" style={{ width: boardWidth(view.cols) }}>
             <span>💣 {Math.max(0, view.mineCount - view.flaggedCount)}</span>
             <Timer key={view.startedAt || 'idle'} startedAt={view.startedAt} status={view.status} />
             <button
@@ -157,7 +179,7 @@ function Minesweeper() {
         setScreen('solo');
     }, []);
     const soloAction = useCallback((r, c, kind) => {
-        setSoloEngine((prev) => (kind === 'flag' ? toggleFlag(prev, r, c) : reveal(prev, r, c)));
+        setSoloEngine((prev) => applyAction(prev, kind, r, c));
     }, []);
     const soloRestart = useCallback(() => setSoloEngine((prev) => createGameState(prev.difficultyId)), []);
 
@@ -213,10 +235,7 @@ function Minesweeper() {
                 conn.on('data', (msg) => {
                     if (connRef.current !== conn) return;
                     if (msg?.kind !== 'action' || !hostEngineRef.current) return;
-                    const engine = hostEngineRef.current;
-                    const next = msg.action === 'flag'
-                        ? toggleFlag(engine, msg.r, msg.c)
-                        : reveal(engine, msg.r, msg.c);
+                    const next = applyAction(hostEngineRef.current, msg.action, msg.r, msg.c);
                     broadcastHostState(next);
                 });
                 conn.on('close', () => {
@@ -231,10 +250,7 @@ function Minesweeper() {
 
     const hostAction = useCallback((r, c, kind) => {
         if (!hostEngineRef.current) return;
-        const next = kind === 'flag'
-            ? toggleFlag(hostEngineRef.current, r, c)
-            : reveal(hostEngineRef.current, r, c);
-        broadcastHostState(next);
+        broadcastHostState(applyAction(hostEngineRef.current, kind, r, c));
     }, [broadcastHostState]);
 
     const hostRestart = useCallback(() => {
