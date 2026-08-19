@@ -1,0 +1,181 @@
+.connect4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-s, 0.5rem);
+    width: 100%;
+}
+
+.connect4__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.connect4__group {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.connect4__btn {
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    padding: 0.45rem 0.5rem;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 2px 2px 0 var(--color-fg);
+    color: var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.connect4__btn--active {
+    background-color: var(--color-sage);
+}
+
+.connect4__btn:hover,
+.connect4__btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.connect4__hud {
+    display: flex;
+    justify-content: space-between;
+    width: min(100%, 420px);
+    font-family: var(--font-pixel);
+    font-size: 0.55rem;
+    color: var(--color-fg);
+}
+
+.connect4__score--red {
+    color: var(--color-warning);
+}
+
+.connect4__score--yellow {
+    color: #c9922f;
+}
+
+.connect4__status {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    color: var(--color-fg);
+    margin: 0;
+    text-align: center;
+}
+
+.connect4__status--over {
+    color: var(--color-accent);
+}
+
+.connect4__board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0.35rem;
+    padding: 0.45rem;
+    width: min(100%, 420px);
+    aspect-ratio: 7 / 6;
+    background-color: var(--color-slate);
+    border: 3px solid var(--color-fg);
+    box-shadow: 5px 5px 0 var(--color-accent);
+}
+
+.connect4-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    box-shadow: inset 2px 2px 0 rgba(74, 59, 49, 0.25);
+    transition: background-color 0.12s ease;
+}
+
+.connect4-cell:not(:disabled):hover {
+    background-color: var(--color-bg-secondary);
+}
+
+.connect4-cell__disc {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.connect4-cell--r .connect4-cell__disc,
+.connect4-cell--y .connect4-cell__disc {
+    /* The disc "falls" the moment it is painted into a cell. */
+    animation: connect4-drop 0.22s ease-out;
+}
+
+.connect4-cell--r {
+    background-color: var(--color-warning);
+    box-shadow: inset -3px -3px 0 rgba(74, 59, 49, 0.3);
+}
+
+.connect4-cell--y {
+    background-color: #e0b350;
+    box-shadow: inset -3px -3px 0 rgba(74, 59, 49, 0.3);
+}
+
+.connect4-cell--win {
+    box-shadow: 0 0 0 3px var(--color-fg), inset -3px -3px 0 rgba(74, 59, 49, 0.3);
+    animation: connect4-pulse 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes connect4-drop {
+    from { transform: translateY(-260%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes connect4-pulse {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .connect4-cell--r .connect4-cell__disc,
+    .connect4-cell--y .connect4-cell__disc,
+    .connect4-cell--win {
+        animation: none;
+    }
+}
+
+.connect4__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--padding-s, 0.5rem);
+    background: rgba(251, 241, 225, 0.92);
+    text-align: center;
+    padding: var(--padding-m, 1rem);
+}
+
+.connect4__overlay p {
+    font-family: var(--font-pixel);
+    font-size: 0.75rem;
+    color: var(--color-fg);
+    margin: 0;
+}
+
+.connect4__button {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    padding: 0.6rem 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 3px 3px 0 var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.connect4__button:hover,
+.connect4__button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--color-fg);
+}

@@ -1,0 +1,277 @@
+.solitaire {
+    --card-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-s, 0.5rem);
+    width: 100%;
+}
+
+.solitaire__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.solitaire__group {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.solitaire__btn {
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    padding: 0.45rem 0.5rem;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 2px 2px 0 var(--color-fg);
+    color: var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.solitaire__btn--active {
+    background-color: var(--color-sage);
+}
+
+.solitaire__btn:hover:not(:disabled),
+.solitaire__btn:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.solitaire__btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.solitaire__hud {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(100%, 460px);
+    font-family: var(--font-pixel);
+    font-size: 0.55rem;
+    color: var(--color-fg);
+}
+
+.solitaire__board {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: min(100%, 460px);
+    padding: 0.6rem;
+    background-color: var(--color-sage);
+    border: 3px solid var(--color-fg);
+    box-shadow: 5px 5px 0 var(--color-slate);
+}
+
+.solitaire__top-row {
+    display: flex;
+    gap: 0.35rem;
+    align-items: flex-start;
+}
+
+/* Top row and tableau share one 7-column rhythm: 1 + 1.3 + 0.7 + 4 = 7. */
+.solitaire__spacer {
+    flex: 0.7 1 0;
+    min-width: 0;
+}
+
+.solitaire-slot {
+    position: relative;
+    aspect-ratio: 5 / 7;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0;
+    background-color: rgba(74, 59, 49, 0.18);
+    border: 2px dashed rgba(255, 251, 243, 0.5);
+    border-radius: var(--card-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+}
+
+.solitaire-slot--waste {
+    flex: 1.3 1 0;
+    aspect-ratio: auto;
+    border-style: none;
+    background-color: transparent;
+}
+
+.solitaire-slot--waste .solitaire-card {
+    position: absolute;
+    top: 0;
+}
+
+.solitaire-slot__count {
+    position: absolute;
+    bottom: -0.1rem;
+    right: 0.1rem;
+    font-family: var(--font-pixel);
+    font-size: 0.4rem;
+    color: var(--color-bg);
+    text-shadow: 1px 1px 0 var(--color-fg);
+}
+
+.solitaire-slot__recycle {
+    font-size: 1.2rem;
+    color: rgba(255, 251, 243, 0.8);
+}
+
+.solitaire-slot__ghost {
+    font-size: 1.3rem;
+    opacity: 0.55;
+}
+
+.solitaire-slot__ghost--red {
+    color: #b8443a;
+}
+
+.solitaire-slot__ghost--black {
+    color: var(--color-fg);
+}
+
+.solitaire__tableau {
+    display: flex;
+    gap: 0.35rem;
+    align-items: flex-start;
+}
+
+.solitaire-column {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.solitaire-column__empty {
+    display: block;
+    width: 100%;
+    aspect-ratio: 5 / 7;
+    border: 2px dashed rgba(255, 251, 243, 0.5);
+    border-radius: var(--card-radius);
+    background-color: rgba(74, 59, 49, 0.18);
+}
+
+.solitaire-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 7;
+    flex: 0 0 auto;
+    border: 1px solid var(--color-fg);
+    border-radius: var(--card-radius);
+    background-color: #fffdf8;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+}
+
+/* Cards after the first peek out just enough to read the corner. The card is
+   1.4x as tall as it is wide, and this margin resolves against that same width. */
+.solitaire-card--stacked {
+    margin-top: -105%;
+}
+
+.solitaire-card--back {
+    background-color: var(--color-accent);
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(74, 59, 49, 0.35) 0 3px,
+        transparent 3px 6px
+    );
+}
+
+.solitaire-card--red {
+    color: #b8443a;
+}
+
+.solitaire-card--black {
+    color: var(--color-fg);
+}
+
+.solitaire-card--selected {
+    outline: 3px solid var(--color-rose);
+    outline-offset: -1px;
+    transform: translateY(-4px);
+    z-index: 2;
+}
+
+.solitaire-card--dimmed {
+    opacity: 0.6;
+}
+
+.solitaire-card__corner {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    font-family: var(--font-mono);
+    font-size: clamp(0.5rem, 2.2vw, 0.7rem);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.solitaire-card__pip {
+    position: absolute;
+    bottom: 1px;
+    right: 3px;
+    font-size: clamp(0.7rem, 3vw, 1.1rem);
+    line-height: 1;
+    opacity: 0.85;
+}
+
+.solitaire__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--padding-s, 0.5rem);
+    background: rgba(251, 241, 225, 0.94);
+    text-align: center;
+    padding: var(--padding-m, 1rem);
+}
+
+.solitaire__overlay p {
+    font-family: var(--font-pixel);
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: var(--color-fg);
+    margin: 0;
+}
+
+.solitaire__overlay-score {
+    color: var(--color-accent) !important;
+    font-size: 0.6rem !important;
+}
+
+.solitaire__button {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    padding: 0.6rem 1rem;
+    margin-top: 0.4rem;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 3px 3px 0 var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.solitaire__button:hover,
+.solitaire__button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.solitaire__hint {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-slate);
+    text-align: center;
+    margin: 0;
+    max-width: 32rem;
+}

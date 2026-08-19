@@ -147,6 +147,14 @@
         "name": "Snake",
         "description": "The classic wall-and-tail dodger, reskinned in a warmer palette. Eat, grow, try not to bite yourself."
       },
+      "chess": {
+        "name": "Chess",
+        "description": "Full rules — castling, en passant, promotion. Play the CPU, share the screen with a friend, or open a room and play someone online in real time."
+      },
+      "solitaire": {
+        "name": "Solitaire",
+        "description": "Klondike, draw one or three. Click a card to lift it, double-click to send it home, undo as much as you like."
+      },
       "sudoku": {
         "name": "Sudoku",
         "description": "A quiet little number puzzle for when you want to think about something that isn't work. Three difficulties, zero pressure."
@@ -154,6 +162,14 @@
       "2048": {
         "name": "2048",
         "description": "Slide, merge, repeat. Chase the 2048 tile without running out of room."
+      },
+      "connectfour": {
+        "name": "Connect Four",
+        "description": "Drop, stack, and sneak a diagonal past the CPU. Three difficulties, or pass the mouse to someone else."
+      },
+      "memory": {
+        "name": "Memory",
+        "description": "Flip two cards, hope they match, learn the board. Small desk-clutter icons and three grid sizes."
       },
       "minesweeper": {
         "name": "Minesweeper",

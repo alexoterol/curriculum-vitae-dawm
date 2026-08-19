@@ -147,6 +147,14 @@
         "name": "Snake",
         "description": "El clásico esquiva-paredes-y-cola, con una paleta más cálida. Come, crece, intenta no morderte."
       },
+      "chess": {
+        "name": "Ajedrez",
+        "description": "Reglas completas — enroque, al paso, coronación. Juega contra la CPU, comparte pantalla con un amigo, o abre una sala y juega online en tiempo real."
+      },
+      "solitaire": {
+        "name": "Solitario",
+        "description": "Klondike, robando una o tres cartas. Haz clic para levantar una carta, doble clic para mandarla a casa, y deshaz lo que quieras."
+      },
       "sudoku": {
         "name": "Sudoku",
         "description": "Un pequeño rompecabezas de números para cuando quieres pensar en algo que no sea trabajo. Tres dificultades, cero presión."
@@ -154,6 +162,14 @@
       "2048": {
         "name": "2048",
         "description": "Desliza, combina, repite. Persigue la ficha 2048 sin quedarte sin espacio."
+      },
+      "connectfour": {
+        "name": "Conecta Cuatro",
+        "description": "Suelta, apila y cuela una diagonal ante la CPU. Tres dificultades, o pásale el ratón a alguien más."
+      },
+      "memory": {
+        "name": "Memoria",
+        "description": "Voltea dos cartas, cruza los dedos y apréndete el tablero. Iconos de escritorio y tres tamaños de cuadrícula."
       },
       "minesweeper": {
         "name": "Buscaminas",

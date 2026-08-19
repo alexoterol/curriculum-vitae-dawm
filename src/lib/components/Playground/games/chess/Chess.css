@@ -1,0 +1,386 @@
+.chess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-s, 0.5rem);
+    width: 100%;
+}
+
+.chess__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.chess__group {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.chess__btn {
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    padding: 0.45rem 0.5rem;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 2px 2px 0 var(--color-fg);
+    color: var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.chess__btn--active {
+    background-color: var(--color-sage);
+}
+
+.chess__btn:hover:not(:disabled),
+.chess__btn:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.chess__btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.chess__status {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    color: var(--color-fg);
+    margin: 0;
+    text-align: center;
+    min-height: 1rem;
+}
+
+.chess__status--over {
+    color: var(--color-warning);
+}
+
+.chess__layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--padding-m, 1rem);
+    width: 100%;
+}
+
+.chess__board-side {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1 1 16rem;
+    min-width: 0;
+    max-width: 420px;
+}
+
+.chess__board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 100%;
+    aspect-ratio: 1;
+    border: 3px solid var(--color-fg);
+    box-shadow: 5px 5px 0 var(--color-slate);
+}
+
+.chess-square {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    line-height: 1;
+}
+
+.chess-square--light {
+    background-color: #f0dfc2;
+}
+
+.chess-square--dark {
+    background-color: #a98a68;
+}
+
+.chess-square--last {
+    box-shadow: inset 0 0 0 3px var(--color-accent);
+}
+
+.chess-square--selected {
+    box-shadow: inset 0 0 0 3px var(--color-sage);
+}
+
+.chess-square--capture {
+    box-shadow: inset 0 0 0 3px var(--color-warning);
+}
+
+.chess-square--check {
+    background-color: var(--color-warning);
+}
+
+.chess-square__dot {
+    position: absolute;
+    width: 26%;
+    height: 26%;
+    border-radius: 50%;
+    background-color: rgba(74, 59, 49, 0.4);
+}
+
+.chess-square__rank,
+.chess-square__file {
+    position: absolute;
+    font-family: var(--font-pixel);
+    font-size: 0.35rem;
+    color: rgba(74, 59, 49, 0.7);
+}
+
+.chess-square__rank {
+    top: 2px;
+    left: 2px;
+}
+
+.chess-square__file {
+    bottom: 2px;
+    right: 3px;
+}
+
+.chess-piece {
+    font-size: clamp(1.2rem, 6.5vw, 2.1rem);
+    line-height: 1;
+    /* The outline keeps both sets readable on either square colour. */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.chess-piece--w {
+    color: #fffdf8;
+}
+
+.chess-piece--b {
+    color: #2f2620;
+}
+
+.chess__promotion {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: rgba(251, 241, 225, 0.94);
+}
+
+.chess__promotion p {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    color: var(--color-fg);
+    margin: 0;
+}
+
+.chess__promotion-row {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.chess__promotion-btn {
+    font-size: 1.6rem;
+    line-height: 1;
+    width: 2.6rem;
+    height: 2.6rem;
+    color: var(--color-fg);
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 2px 2px 0 var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.chess__promotion-btn:hover,
+.chess__promotion-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-fg);
+    background-color: var(--color-accent);
+}
+
+.chess__captures {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    min-height: 1.3rem;
+    width: 100%;
+}
+
+.chess__captures-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.05rem;
+}
+
+.chess__captured {
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--color-slate);
+}
+
+.chess__balance {
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    color: var(--color-accent);
+}
+
+.chess__moves {
+    flex: 0 1 200px;
+    min-width: 0;
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 0.5rem 0.6rem;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 3px 3px 0 var(--color-slate);
+}
+
+.chess__moves-title {
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    color: var(--color-accent);
+    margin: 0 0 0.4rem;
+}
+
+.chess__moves-empty {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-slate);
+    margin: 0;
+}
+
+.chess__moves-row {
+    display: grid;
+    grid-template-columns: 1.6rem 1fr 1fr;
+    gap: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-fg);
+    margin: 0 0 0.15rem;
+}
+
+.chess__moves-num {
+    color: var(--color-slate);
+}
+
+@media (max-width: 620px) {
+    .chess__moves {
+        flex: 1 1 100%;
+        max-height: 8rem;
+    }
+}
+
+/* --------------------------------------------------------------- lobby ---- */
+
+.chess__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-m, 1rem);
+    width: 100%;
+}
+
+.chess__menu-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: min(100%, 280px);
+}
+
+.chess__menu-btn {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    padding: 0.55rem 0.8rem;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 2px 2px 0 var(--color-fg);
+    color: var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.chess__menu-btn:not(:disabled):hover,
+.chess__menu-btn:not(:disabled):active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
+
+.chess__menu-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.chess__menu-btn--ghost {
+    background-color: transparent;
+}
+
+.chess__menu-hint {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-slate);
+    text-align: center;
+    max-width: 24rem;
+    margin: 0;
+}
+
+.chess__code-input {
+    font-family: var(--font-pixel);
+    font-size: 1.1rem;
+    letter-spacing: 0.3rem;
+    text-align: center;
+    text-transform: uppercase;
+    width: min(100%, 200px);
+    padding: 0.6rem;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-fg);
+    color: var(--color-fg);
+}
+
+.chess__room {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem 1rem;
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    color: var(--color-fg);
+}
+
+.chess__room-code {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.chess__room-code strong {
+    font-size: 0.8rem;
+    letter-spacing: 0.15rem;
+    color: var(--color-accent);
+}
+
+.chess__room-side {
+    color: var(--color-slate);
+}
+
+.chess__copy {
+    padding: 0.2rem 0.35rem;
+    font-size: 0.7rem;
+    line-height: 1;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-fg);
+    box-shadow: 2px 2px 0 var(--color-fg);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.chess__copy:hover,
+.chess__copy:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-fg);
+}
