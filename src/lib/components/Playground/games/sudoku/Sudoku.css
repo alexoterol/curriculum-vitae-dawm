@@ -3,13 +3,14 @@
     flex-direction: column;
     align-items: center;
     gap: var(--padding-m, 1rem);
+    width: 100%;
 }
 
 .sudoku-game__hud {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
     gap: 0.5rem;
 }
 
@@ -46,8 +47,9 @@
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
     aspect-ratio: 1;
+    container-type: inline-size;
     background-color: var(--color-fg);
     border: 3px solid var(--color-fg);
     gap: 1px;
@@ -59,7 +61,8 @@
     justify-content: center;
     background-color: var(--color-bg);
     font-family: var(--font-mono, 'Courier New', monospace);
-    font-size: clamp(0.8rem, 3.5vw, 1.1rem);
+    font-size: clamp(0.8rem, 3.5vw, 1.1rem); /* fallback */
+    font-size: max(0.8rem, 4.2cqw);
     font-weight: bold;
     color: var(--color-accent);
     border-radius: 0;
@@ -102,7 +105,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(0.4rem, 1.6vw, 0.55rem);
+    font-size: clamp(0.4rem, 1.6vw, 0.55rem); /* fallback */
+    font-size: max(0.4rem, 2.1cqw);
     font-weight: normal;
     color: var(--color-fg);
     opacity: 0.7;
@@ -112,7 +116,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 0.4rem;
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
 }
 
 .sudoku-numpad__btn {

@@ -10,9 +10,9 @@ function applyAction(engine, kind, r, c) {
 }
 
 // Wider boards (e.g. Demon's 25 cols) get more room so cells don't shrink
-// below a usable tap size; narrower boards keep the original 420px cap.
+// below a usable tap size; narrower boards grow to the shared arcade cap.
 function boardWidth(cols) {
-    return `min(100%, ${Math.max(420, cols * 20)}px)`;
+    return `min(100%, max(var(--arcade-board-max), ${cols * 26}px))`;
 }
 
 const CELL_ICON = { hidden: '', flag: '🚩', 'flag-mine': '🚩', mine: '💣', 'mine-hit': '💣' };
@@ -68,6 +68,7 @@ function Board({ view, flagMode, onCellAction, interactive }) {
                 gridTemplateRows: `repeat(${view.rows}, 1fr)`,
                 aspectRatio: `${view.cols} / ${view.rows}`,
                 width: boardWidth(view.cols),
+                '--cols': view.cols,
             }}
         >
             {view.grid.map((row, r) =>

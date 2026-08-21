@@ -44,7 +44,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.6rem;
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
     font-family: var(--font-pixel);
     font-size: 0.5rem;
     color: var(--color-fg);
@@ -55,7 +55,7 @@
     display: grid;
     grid-template-columns: repeat(var(--memory-columns, 4), 1fr);
     gap: 0.4rem;
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
     padding: 0.5rem;
     background-color: var(--color-bg-secondary);
     border: 3px solid var(--color-fg);
@@ -68,6 +68,7 @@
     border: none;
     background: none;
     perspective: 600px;
+    container-type: inline-size;
 }
 
 .memory-card__inner {
@@ -102,13 +103,15 @@
         transparent 4px 8px
     );
     font-family: var(--font-pixel);
-    font-size: clamp(0.6rem, 3vw, 0.9rem);
+    font-size: clamp(0.6rem, 3vw, 0.9rem); /* fallback */
+    font-size: max(0.6rem, 16cqw);
     color: var(--color-dark);
 }
 
 .memory-card__face--front {
     background-color: var(--color-dark);
-    font-size: clamp(1.1rem, 6vw, 1.9rem);
+    font-size: clamp(1.1rem, 6vw, 1.9rem); /* fallback */
+    font-size: max(1.1rem, 34cqw);
     line-height: 1;
     transform: rotateY(180deg);
 }

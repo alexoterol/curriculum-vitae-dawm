@@ -43,6 +43,11 @@
     --padding-x: 1.5rem;
     --padding-xl: 3rem;
     --padding-main-x: clamp(1rem, 15vw, 20rem);
+
+    /* Playground arcade: one knob for how large a game board may grow. Boards
+       stay fluid below this — the cap only stops them stretching on wide screens. */
+    --arcade-board-max: 560px;
+    --arcade-board-max-wide: 720px; /* 7-column layouts, e.g. solitaire */
     --padding-main-y: 1.25rem;
 
     /* Medidas */

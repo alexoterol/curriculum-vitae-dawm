@@ -79,7 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
     font-family: var(--font-pixel);
     font-size: 0.7rem;
     color: var(--color-fg);
@@ -110,7 +110,8 @@
 
 .minesweeper-board {
     display: grid;
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
+    container-type: inline-size;
     aspect-ratio: 1;
     gap: 1px;
     background-color: var(--color-fg);
@@ -125,7 +126,9 @@
     justify-content: center;
     background-color: var(--color-bg-secondary);
     font-family: var(--font-pixel);
-    font-size: clamp(0.55rem, 3vw, 0.85rem);
+    font-size: clamp(0.55rem, 3vw, 0.85rem); /* fallback */
+    /* Column count varies by difficulty, so derive the digit size from it. */
+    font-size: max(0.55rem, calc(30cqw / var(--cols, 9)));
     color: var(--color-fg);
     user-select: none;
 }

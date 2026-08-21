@@ -42,7 +42,7 @@
 .connect4__hud {
     display: flex;
     justify-content: space-between;
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
     font-family: var(--font-pixel);
     font-size: 0.55rem;
     color: var(--color-fg);
@@ -75,7 +75,7 @@
     grid-template-rows: repeat(6, 1fr);
     gap: 0.35rem;
     padding: 0.45rem;
-    width: min(100%, 420px);
+    width: min(100%, var(--arcade-board-max));
     aspect-ratio: 7 / 6;
     background-color: var(--color-slate);
     border: 3px solid var(--color-fg);
