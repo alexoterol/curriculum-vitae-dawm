@@ -4,38 +4,38 @@ import Separator from '../Separator';
 import ProjectCard from './ProjectCard';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-import rubiusImg from '/src/lib/assets/images/projects/copland.webp';
-import archanImg from '/src/lib/assets/images/projects/copland.webp';
-import starmcImg from '/src/lib/assets/images/projects/copland.webp';
-import dndImg from '/src/lib/assets/images/projects/copland.webp';
+import projectImg from '../../assets/images/projects/copland.webp';
 
 function Projects() {
     const { t } = useLanguage();
     
     const projectsList = t('projects.list');
     
-    const projectsData = [
+    // El orden es deliberado: el proyecto de seguridad va primero.
+    const projectsMeta = [
         {
-            ...projectsList[0],
-            img: rubiusImg,
-            tags: ['TypeScript', 'Docker', 'MongoDB']
+            tags: ['Flutter', 'Dart', 'AES-256', 'SQLite'],
+            repoUrl: 'https://github.com/alexoterol/password-manager'
         },
         {
-            ...projectsList[1],
-            img: archanImg,
-            tags: ['TypeScript', 'Docker', 'Redis']
+            tags: ['C', 'IPC', 'Docker'],
+            repoUrl: 'https://github.com/alexoterol/AKLight-messaging'
         },
         {
-            ...projectsList[2],
-            img: starmcImg,
-            tags: ['Rust', 'React']
+            tags: ['Python', 'PLY', 'FastAPI'],
+            repoUrl: 'https://github.com/alexoterol/swift-lexer-parser-semantic-analyzer'
         },
         {
-            ...projectsList[3],
-            img: dndImg,
-            tags: ['Rust', 'Svelte', 'SQLite']
+            tags: ['Python', 'Keras', 'PyQt5'],
+            repoUrl: 'https://github.com/alexoterol/ai-backtrack-sudoku-solver'
         }
     ];
+
+    const projectsData = projectsList.map((project, index) => ({
+        ...project,
+        ...projectsMeta[index],
+        img: projectImg
+    }));
 
     return (
         <div className="app-container">
@@ -45,13 +45,15 @@ function Projects() {
                     <Separator margin={false} />
                     
                     <div className="projects-list">
-                        {projectsData.map((project, index) => (
+                        {projectsData.map((project) => (
                             <ProjectCard
-                                key={index}
+                                key={project.name}
                                 name={project.name}
                                 description={project.description}
                                 img={project.img}
                                 tags={project.tags}
+                                repoUrl={project.repoUrl}
+                                repoLabel={t('projects.viewRepo')}
                             />
                         ))}
                     </div>

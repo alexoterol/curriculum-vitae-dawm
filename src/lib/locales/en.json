@@ -22,7 +22,8 @@
     "aboutMe": "About Me",
     "projects": "Projects",
     "contact": "Contact",
-    "donate": "Donate :3",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
     "discord": "Discord",
     "youtube": "Youtube"
   },
@@ -77,22 +78,23 @@
   },
   "projects": {
     "title": "Projects",
+    "viewRepo": "View repository",
     "list": [
       {
-        "name": "ABC",
-        "description": "El bot de ABC"
+        "name": "VaultWave — Password Manager",
+        "description": "Offline-first password manager in Flutter. AES-256 field encryption with keys derived through PBKDF2-HMAC-SHA256 (100,000 iterations), plus optional hardware-key MFA combined via HKDF — the master password alone cannot decrypt the vault. No server, no account, no telemetry."
       },
       {
-        "name": "CDR",
-        "description": "Un bot de DSFA"
+        "name": "AKLight — Distributed Messaging",
+        "description": "Kafka-inspired distributed messaging system written in C to monitor Docker containers. Producers fork child processes that collect CPU, memory, disk and network metrics and publish them through the broker."
       },
       {
-        "name": "OLA",
-        "description": "BB"
+        "name": "Swift Analyzer",
+        "description": "Lexer, parser and semantic analyzer for the Swift language, implemented in Python with PLY and exposed through a FastAPI web interface that visualizes every stage of the analysis."
       },
       {
-        "name": "YYT",
-        "description": "RST"
+        "name": "Sudoku Solver with AI",
+        "description": "Sudoku solver pairing a classic backtracking algorithm — visualized step by step — with a Keras neural network trained on 9 million puzzles. Desktop interface built in PyQt5."
       }
     ]
   },

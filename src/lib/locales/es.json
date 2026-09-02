@@ -22,7 +22,8 @@
     "aboutMe": "Sobre mí",
     "projects": "Proyectos",
     "contact": "Contacto",
-    "donate": "Donar :3",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
     "discord": "Discord",
     "youtube": "Youtube"
   },
@@ -77,22 +78,23 @@
   },
   "projects": {
     "title": "Proyectos",
+    "viewRepo": "Ver repositorio",
     "list": [
       {
-        "name": "ABC",
-        "description": "El bot de ABC"
+        "name": "VaultWave — Gestor de contraseñas",
+        "description": "Gestor de contraseñas offline en Flutter. Cifrado AES-256 por campo con claves derivadas mediante PBKDF2-HMAC-SHA256 (100 000 iteraciones) y MFA opcional con llave física combinada por HKDF: la contraseña maestra por sí sola no descifra la bóveda. Sin servidor, sin cuenta, sin telemetría."
       },
       {
-        "name": "CDR",
-        "description": "Un bot de DSFA"
+        "name": "AKLight — Mensajería distribuida",
+        "description": "Sistema de mensajería distribuida en C inspirado en Kafka para monitorear contenedores Docker. Los productores hacen fork de procesos hijos que recolectan métricas de CPU, memoria, disco y red y las publican a través del broker."
       },
       {
-        "name": "OLA",
-        "description": "BB"
+        "name": "Swift Analyzer",
+        "description": "Analizador léxico, sintáctico y semántico para el lenguaje Swift, implementado en Python con PLY y expuesto en una interfaz web con FastAPI que visualiza cada etapa del análisis."
       },
       {
-        "name": "YYT",
-        "description": "RST"
+        "name": "Solver de Sudoku con IA",
+        "description": "Solver de Sudoku que combina un algoritmo clásico de backtracking —visualizado paso a paso— con una red neuronal en Keras entrenada sobre 9 millones de tableros. Interfaz de escritorio en PyQt5."
       }
     ]
   },

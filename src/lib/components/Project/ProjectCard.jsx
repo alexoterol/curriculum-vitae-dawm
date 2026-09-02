@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ProjectCard.css';
 
-function ProjectCard({ name, description, img, tags }) {
+function ProjectCard({ name, description, img, tags, repoUrl, repoLabel }) {
     return (
         <div className="project-container">
             <img src={img} className="project-icon" alt={name} />
@@ -10,6 +10,16 @@ function ProjectCard({ name, description, img, tags }) {
             <div className="project-info">
                 <h3>{name}</h3>
                 <p>{description}</p>
+                {repoUrl && (
+                    <a
+                        className="project-repo"
+                        href={repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {repoLabel} ↗
+                    </a>
+                )}
             </div>
 
             <div className="project-tags">
@@ -28,6 +38,8 @@ ProjectCard.propTypes = {
     description: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    repoUrl: PropTypes.string,
+    repoLabel: PropTypes.string,
 };
 
 export default ProjectCard;

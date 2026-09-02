@@ -222,3 +222,21 @@
         --tag-typescript-border: #4d65f0;
     }
 }
+
+.project-repo {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: bold;
+    /* Terracota oscurecido: el --color-accent original solo alcanza 2.53:1 */
+    color: #A85A2B;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    transition: opacity 0.15s ease;
+}
+
+.project-repo:hover,
+.project-repo:focus-visible {
+    opacity: 0.72;
+}
